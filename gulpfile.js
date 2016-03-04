@@ -28,7 +28,7 @@ switch (arg.env) {
 // BrowserSync.
 gulp.task('browsersync', function () {
   browserSync.init({
-    proxy: 'drupal8.dev'
+    proxy: 'gall.dev'
   });
   gulp.watch('css/**/*.css').on('change', reload);
   gulp.watch('templates/**/*.twig').on('change', reload);
@@ -36,7 +36,7 @@ gulp.task('browsersync', function () {
 
 // Use Node Sass (LibSass) to compile Sass.
 gulp.task('sass', function () {
-  gulp.src('sass/rhian.scss')
+  gulp.src('sass/gall.scss')
     .pipe($.if(envOption.sourcemap, $.sourcemaps.init()))
     .pipe($.sass())
     .pipe($.autoprefixer('last 2 versions', 'ie 8', 'ie 9'))
