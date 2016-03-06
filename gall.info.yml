@@ -9,3 +9,13 @@ libraries:
 base theme: classy
 #Using Classy as a base theme https://www.drupal.org/theme-guide/8/classy
 
+regions:
+  header: Header
+  navbar: Navigation Bar        
+  content_top: Content Top              
+  content: Main Content
+  content_bottom: Content Bottom
+  left: Left Sidebar
+  right_outer: Right Outer Sidebar
+  right_inner: Right Inner Sidebar
+  footer: Footer
