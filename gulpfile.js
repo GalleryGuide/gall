@@ -73,7 +73,7 @@ gulp.task('default', ['sprite', 'sass', 'watch', 'browsersync'], function () {
 
 // Watch Sass - compile to CSS.
 gulp.task('watch', function () {
-  gulp.watch('sass/**/*.scss', ['sprite', 'sass', 'scss-lint']);
+  gulp.watch('sass/**/*.scss', ['sprite', 'sass']);
 });
 
 // Run BrowserSync.
