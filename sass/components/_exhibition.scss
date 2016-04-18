@@ -1,0 +1,15 @@
+.view-exhibitions-a-z {
+  .view-content {
+    @include tiles;
+  }
+  
+  .views-row {
+    @include tile;
+  }
+}
+
+.attachment {
+  .view-content {
+    display: block;
+  }
+}
