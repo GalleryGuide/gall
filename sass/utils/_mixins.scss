@@ -100,8 +100,7 @@
     @media only screen and (max-width: 480px) {
       @content;
     }
-  }
-  @else {
+  } @else {
     @media only screen and (min-width: $point) {
       @content;
     }
@@ -121,7 +120,7 @@
 @mixin tile {
   position: relative;
   width: 13.75em;
-  
+
   h2 {
     position: absolute;
     bottom: 0;
@@ -140,8 +139,30 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  
+
   .views-row {
     margin-bottom: 2em;
+  }
+}
+
+@mixin glossary {
+  justify-content: center;
+  margin-bottom: 2em;
+  background: $grey-light;
+
+  .views-summary {
+    border-right: 1px solid $white;
+    
+    a {
+      display: inline-block;
+      padding: 0.5em;
+      width: 1.5em;
+      background: $red;
+      color: $white;
+
+      &.is-active {
+        background: $orange;
+      }
+    }
   }
 }

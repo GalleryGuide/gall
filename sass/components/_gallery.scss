@@ -11,6 +11,6 @@
 
 .attachment {
   .view-content {
-    display: block;
+    @include glossary;
   }
 }
