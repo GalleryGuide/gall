@@ -1,0 +1,49 @@
+@mixin active-link {
+  background: $red;
+}
+
+
+.menu--primary-links {
+  position: relative;
+  
+  background: $grey-dark;
+  color: $white;
+  
+  a {
+    color: $white;
+  }
+  
+  .menu {
+    margin: 0;
+
+    .menu {
+      position: absolute;
+      top: 1.6em;
+      left: -9999em;
+      background: $red;
+    }
+  }
+  
+  .menu-item--active-trail {
+    @include active-link;
+    
+    .menu {
+      left: 0;
+    }
+  }
+  
+  .menu-item {
+    display: inline-block;
+    padding: .25em;
+    
+    &:hover,
+    &:focus {
+      @include active-link;
+      
+      .menu {
+        left: 0;
+        z-index: 2;
+      }
+    }
+  }
+}
