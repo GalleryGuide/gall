@@ -28,7 +28,7 @@ switch (arg.env) {
 // BrowserSync.
 gulp.task('browsersync', function () {
   browserSync.init({
-    proxy: 'gall.dev'
+    proxy: 'drupalvm.dev'
   });
   gulp.watch('css/**/*.css').on('change', reload);
   gulp.watch('templates/**/*.twig').on('change', reload);
