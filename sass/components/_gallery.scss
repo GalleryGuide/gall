@@ -1,13 +1,11 @@
-.node--type-gallery {
-  &.node--view-mode-teaser {
-    @include tile;
-  }
-}
-
 .view-galleries-a-z,
 .view-galleries-new {
   .view-content {
     @include tiles;
+  }
+  
+  .views-row {
+    @include tile;
   }
 }
 
