@@ -7,7 +7,10 @@ var gulp = require('gulp'),
   reload = browserSync.reload,
   spritesmith = require('gulp.spritesmith'),
   minimist = require('minimist'),
-  arg = minimist(process.argv.slice(2));
+  arg = minimist(process.argv.slice(2)),
+  svgmin      = require('gulp-svgmin'),
+  svgstore    = require('gulp-svgstore'),
+  cheerio     = require('gulp-cheerio');
 
 // Default environment options.
 var envOption = {
@@ -32,6 +35,20 @@ gulp.task('browsersync', function () {
   });
   gulp.watch('css/**/*.css').on('change', reload);
   gulp.watch('templates/**/*.twig').on('change', reload);
+});
+
+gulp.task('icons', function () {
+  return gulp.src('./src/icons/*')
+    .pipe(svgmin())
+    .pipe(svgstore({ fileName: 'icons.svg', inlineSvg: true}))
+    .pipe(cheerio({
+      run: function ($, file) {
+        $('svg').addClass('hide');
+        $('[fill]').removeAttr('fill');
+      },
+      parserOptions: { xmlMode: true }
+    }))
+    .pipe(gulp.dest('./images/'));
 });
 
 // Use Node Sass (LibSass) to compile Sass.
