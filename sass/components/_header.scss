@@ -1,6 +1,11 @@
 header {
+  overflow: auto;
   background: $grey-dark;
   color: $white;
+}
+
+.block-system-branding-block {
+  float: left;
 }
 
 .social-links {

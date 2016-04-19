@@ -20,8 +20,6 @@
 %}
 {% if content %}
   <div{{ attributes.addClass(classes) }}>
-    {{ content }}
-
     <div class="social-links">
       <a href="https://www.facebook.com/thegalleryguide" title="Find us on Facebook">
         <svg class="icon">
@@ -31,9 +29,11 @@
 
       <a href="https://www.twitter.com/thegalleryguide" title="Follow us on Twitter">
         <svg class="icon">
-          <use xlink:href="#facebook"></use>
+          <use xlink:href="#twitter"></use>
         </svg>
       </a>
     </div>
+
+    {{ content }}
   </div>
 {% endif %}
