@@ -1,0 +1,84 @@
+// See http://codepen.io/dudleystorey/pen/kFoGw
+@mixin carousel($items, $speed) {
+  $duration: $items * $speed;
+    
+  animation: #{$duration}s slidy-#{$items} infinite;  
+  width: (100% * $items);
+  
+  .field__item {
+    width: (100% / $items);
+    height: auto;
+    display: inline-block;
+    position: inherit;
+  }
+}
+
+@for $i from 2 through 5 {
+  .carousel-#{$i} {
+    @include carousel($i, 6);
+  }
+  
+  @keyframes slidy-#{$i} {
+    /**
+     * There are $i images in the carousel.
+     * The first image is repeated, so there are $i - 1 distinct images to share the transition time.
+     */
+    $still_time: 100 / ($i - 1);
+    $moving_time: 5;
+    
+    @for $j from 0 through $i {
+      $k: $j +1;
+      $unit: $still_time - $moving_time;
+
+      @if ($j == $i) {
+        // Final slide
+        $percentage: 100;
+        $left_offset: 0 - (($j - 1) * 100);
+      }
+      @else if($j > 0) {
+        // Standard case
+        $percentage: round($j * $unit) + ($j * $moving_time);
+        $left_offset: 0 - ($j * 100)
+      }
+      @else {
+        $percentage: 0;
+        $left_offset: 0;
+      }
+
+      $next_percentage: $percentage + $unit;
+
+      @if ($percentage <= 100) {
+        #{$percentage}% {
+          left: #{$left_offset}%;
+        }
+      }
+
+      @if ($next_percentage < 100) {
+        #{$next_percentage}% {
+          left: #{$left_offset}%;
+        }        
+      }
+    }
+  }
+}
+
+.field--name-field-images {
+  width: 300px;
+  overflow: hidden;
+}
+
+.image-carousel {
+  position: relative;
+  font-size: 0;
+
+  .field__item {
+    height: auto;
+    display: inline-block;
+    position: inherit;    
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
