@@ -16,6 +16,20 @@ header {
   float: right;
   padding: .5em 0;
   font-size: 2em;
+  
+  a {
+    display: inline-block;
+    height: 1.5em;
+    padding: .25em;
+    border: 1px solid transparent;
+    
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      border-color: $red;
+      color: $red;
+    }
+  }
 }
 
 .menu--account {
