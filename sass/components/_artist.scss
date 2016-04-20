@@ -1,4 +1,5 @@
-.view-artists-new {
+.view-artists-new,
+.view-artists-by-tag {
   .view-content {
     @include tiles;
   }
