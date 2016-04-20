@@ -43,7 +43,7 @@ gulp.task('icons', function () {
     .pipe(svgstore({ fileName: 'icons.svg', inlineSvg: true}))
     .pipe(cheerio({
       run: function ($, file) {
-        $('svg').addClass('hide');
+        $('svg').addClass('hidden');
         $('[fill]').removeAttr('fill');
       },
       parserOptions: { xmlMode: true }
