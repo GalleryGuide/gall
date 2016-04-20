@@ -1,7 +1,11 @@
 header {
-  overflow: auto;
   background: $grey-dark;
   color: $white;
+  border-bottom: 1.65em solid $red;
+}
+
+.region-header {
+  position: relative;  
 }
 
 .block-system-branding-block {
@@ -10,4 +14,13 @@ header {
 
 .social-links {
   float: right;
+  padding: .5em 0;
+  font-size: 2em;
+}
+
+.menu--account {
+  position: absolute;
+  top: 3.75em;
+  right: 0;
+  z-index: 5;
 }
