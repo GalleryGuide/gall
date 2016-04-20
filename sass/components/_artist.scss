@@ -1,0 +1,9 @@
+.view-artists-new {
+  .view-content {
+    @include tiles;
+  }
+
+  .views-row {
+    @include tile;
+  }
+}

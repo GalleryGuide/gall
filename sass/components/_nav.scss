@@ -50,7 +50,7 @@
     left: -9999em;
     width: 100%;
     background: $red;
-    z-index: 2;
+    z-index: 1;
   }
 
   &:hover,
@@ -60,4 +60,12 @@
       left: 0;
     }
   }
+
+  &:hover,
+  &:focus {
+    .menu {
+      z-index: 2;
+    }
+  }
+
 }
