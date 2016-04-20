@@ -5,7 +5,7 @@
 
 .menu--primary-links {
   position: relative;
-  
+  clear: both;
   background: $grey-dark;
   color: $white;
   
@@ -27,24 +27,37 @@
   
   .menu-item--active-trail {
     @include active-link;
-    
+  }
+
+  .menu-item:hover,
+  .menu-item:focus {
+    @include active-link;    
+  }
+}
+
+.menu-item {
+  display: inline-block;
+  padding: 0;
+
+  a {
+    display: block;
+    padding: .25em;
+  }
+
+  .menu {
+    position: absolute;
+    top: 1.6em;
+    left: -9999em;
+    width: 100%;
+    background: $red;
+    z-index: 2;
+  }
+
+  &:hover,
+  &:focus,
+  &.menu-item--active-trail {
     .menu {
       left: 0;
-    }
-  }
-  
-  .menu-item {
-    display: inline-block;
-    padding: .25em;
-    
-    &:hover,
-    &:focus {
-      @include active-link;
-      
-      .menu {
-        left: 0;
-        z-index: 2;
-      }
     }
   }
 }
