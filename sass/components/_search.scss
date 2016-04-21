@@ -1,0 +1,12 @@
+.search-block-form {
+  float: right;
+  clear: right;
+
+  .form-submit {
+    @include sprite($search);
+    @include icon-inline;
+
+    border: none;
+    background-color: transparent;
+  }
+}
