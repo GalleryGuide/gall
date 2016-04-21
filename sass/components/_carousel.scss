@@ -1,5 +1,32 @@
-// See http://codepen.io/dudleystorey/pen/kFoGw
-@mixin carousel($items, $speed) {
+// See http://thenewcode.com/627/Make-A-Responsive-CSS3-Image-Slider
+
+.field--name-field-images {
+  overflow: hidden;
+}
+
+.image-carousel {
+  position: relative;
+  font-size: 0;
+
+  .field__item {
+    height: auto;
+    display: inline-block;
+    position: inherit;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/// Set up image carousels. 
+///
+/// @param {int} $items - the number of items
+/// @param {int} $speed [6] - the duration of each item in seconds
+///
+
+@mixin carousel($items, $speed: 6) {
   $duration: $items * $speed;
     
   animation: #{$duration}s slidy-#{$items} infinite;  
@@ -15,7 +42,7 @@
 
 @for $i from 2 through 5 {
   .carousel-#{$i} {
-    @include carousel($i, 6);
+    @include carousel($i);
   }
   
   @keyframes slidy-#{$i} {
@@ -23,61 +50,28 @@
      * There are $i images in the carousel.
      * The first image is repeated, so there are $i - 1 distinct images to share the transition time.
      */
-    $still_time: 100 / ($i - 1);
+    $duration_per_slide: 100 / ($i - 1);
     $moving_time: 5;
+    $still_time: $duration_per_slide - $moving_time;
     
     @for $j from 0 through $i {
-      $k: $j +1;
-      $unit: $still_time - $moving_time;
 
-      @if ($j == $i) {
-        // Final slide
-        $percentage: 100;
-        $left_offset: 0 - (($j - 1) * 100);
-      }
-      @else if($j > 0) {
-        // Standard case
-        $percentage: round($j * $unit) + ($j * $moving_time);
-        $left_offset: 0 - ($j * 100)
-      }
-      @else {
-        $percentage: 0;
-        $left_offset: 0;
-      }
+      $slide_start: round($j * $duration_per_slide);
+      $slide_end: round($slide_start + $still_time);
 
-      $next_percentage: $percentage + $unit;
+      $left_offset: 0 - ($j * 100);
 
-      @if ($percentage <= 100) {
-        #{$percentage}% {
+      @if ($slide_start <= 100) {
+        #{$slide_start}% {
           left: #{$left_offset}%;
         }
       }
 
-      @if ($next_percentage < 100) {
-        #{$next_percentage}% {
+      @if ($slide_end < 100) {
+        #{$slide_end}% {
           left: #{$left_offset}%;
         }        
       }
     }
-  }
-}
-
-.field--name-field-images {
-  overflow: hidden;
-}
-
-.image-carousel {
-  position: relative;
-  font-size: 0;
-
-  .field__item {
-    height: auto;
-    display: inline-block;
-    position: inherit;    
-  }
-  
-  img {
-    width: 100%;
-    height: auto;
   }
 }
