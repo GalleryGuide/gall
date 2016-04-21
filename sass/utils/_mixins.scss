@@ -162,7 +162,9 @@
       color: $white;
       text-align: center;
 
-      &.is-active {
+      &.is-active,
+      &:hover,
+      &:focus {
         background: $orange;
       }
     }
