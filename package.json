@@ -1,6 +1,11 @@
 {
   "name": "GalleryGuide",
-  "repository": "git@bitbucket.org:rubydesign/gall.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GalleryGuide/gall"
+  },
+  "title": "The Gallery Guide",
+  "homepage": "https://github.com/GalleryGuide/gall",
   "version": "0.0.0",
   "description": "",
   "main": "gulpfile.js",

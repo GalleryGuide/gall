@@ -1,11 +1,6 @@
-// @file
-// Custom sass mixins
-//
-// Define the custom mixins for your project here.
-// http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#defining_a_mixin
+/// Makes an element visually hidden, but accessible.
+/// See http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 
-// Makes an element visually hidden, but accessible.
-// @see http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 @mixin element-invisible {
   position: absolute !important;
   height: 1px;
@@ -14,11 +9,8 @@
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-%element-invisible {
-  @include element-invisible;
-}
+/// Turns off the element-invisible effect.
 
-// Turns off the element-invisible effect.
 @mixin element-invisible-off {
   position: static !important;
   clip: auto;
@@ -27,11 +19,8 @@
   overflow: auto;
 }
 
-%element-invisible-off {
-  @include element-invisible-off;
-}
+/// Makes an element visually hidden by default, but visible when focused.
 
-// Makes an element visually hidden by default, but visible when focused.
 @mixin element-focusable {
   @include element-invisible;
 
@@ -41,9 +30,6 @@
   }
 }
 
-%element-focusable {
-  @include element-focusable;
-}
 
 @mixin float-fix() {
   &:before,
@@ -58,15 +44,22 @@
   }
 }
 
-%float-fix {
-  @include float-fix;
+/// Hide text of an element, for example when applying an image sprite.
+
+@mixin hide-text {
+  text-indent: -9999px;
+  white-space: nowrap;
+  overflow: hidden;
 }
+
+/// Convert a pixel value to ems.
 
 @function em($pixels, $context: $base-font-size) {
   @return #{$pixels/$context}em
 }
 
-// Breakpoints
+/// Breakpoints
+
 @mixin breakpoint($point) {
   @if $point == widescreen {
     @media only screen and (min-width: 1240px) {
@@ -107,15 +100,21 @@
   }
 }
 
+/// Set up an icon to display inline-block.
+
 @mixin icon-inline {
   display: inline-block;
   content: ' ';
 }
 
+/// Set up an icon to display as a block.
+
 @mixin icon-block {
   display: block;
   content: ' ';
 }
+
+/// A square block with a translucent heading over it.
 
 @mixin tile {
   position: relative;
@@ -136,6 +135,8 @@
   }
 }
 
+/// A set of tiles.
+
 @mixin tiles {
   display: flex;
   flex-wrap: wrap;
@@ -145,6 +146,8 @@
     margin-bottom: 2em;
   }
 }
+
+/// Navigation for a glossary.
 
 @mixin glossary {
   justify-content: center;

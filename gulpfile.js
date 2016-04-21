@@ -74,7 +74,7 @@ gulp.task('scss-lint', function () {
 
 // Spritesmith.
 gulp.task('sprite', function() {
-  var spriteData = gulp.src('images/src/*.png')
+  var spriteData = gulp.src('src/sprite/*.png')
     .pipe(spritesmith({
       imgPath: '../images/sprite.png',
       imgName: 'sprite.png',
