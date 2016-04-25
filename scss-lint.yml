@@ -1,5 +1,6 @@
 exclude: 
-  - sass/base/_normalize.scss
+  - sass/base/_reset.scss
+  - sass/base/_sprites.scss
   - sass/utils/_mixins.scss
 
 linters:
