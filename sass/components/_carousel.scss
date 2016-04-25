@@ -59,6 +59,7 @@
       $slide_start: round($j * $duration_per_slide);
       $slide_end: round($slide_start + $still_time);
 
+      // Move everything one image width left for each slide. 
       $left_offset: 0 - ($j * 100);
 
       @if ($slide_start <= 100) {
