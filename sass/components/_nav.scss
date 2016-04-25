@@ -54,7 +54,7 @@
   }
 
   &:hover,
-  &:focus,
+  &.has-focus,
   &.menu-item--active-trail {
     .menu {
       left: 0;
@@ -62,7 +62,7 @@
   }
 
   &:hover,
-  &:focus {
+  &.has-focus {
     .menu {
       z-index: 2;
     }
