@@ -103,6 +103,8 @@
 /// Set up an icon to display inline-block.
 
 @mixin icon-inline {
+  @include hide-text;
+  
   display: inline-block;
   content: ' ';
 }
@@ -110,6 +112,8 @@
 /// Set up an icon to display as a block.
 
 @mixin icon-block {
+  @include hide-text;
+
   display: block;
   content: ' ';
 }
