@@ -48,6 +48,7 @@
 <header role="banner">
   <div class="layout-container">
     {{ page.header }}
+    {{ page.navbar }}
   </div>
 </header>
 
@@ -65,7 +66,9 @@
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
     <div class="layout-content">
+      {{ page.content_top }}
       {{ page.content }}
+      {{ page.content_bottom }}
     </div>{# /.layout-content #}
 
     {% if page.sidebar_first %}
