@@ -1,6 +1,7 @@
 // See http://thenewcode.com/627/Make-A-Responsive-CSS3-Image-Slider
 
-.field--name-field-images {
+.field--name-field-images,
+.block-views-blockfrontpage-block-1 {
   overflow: hidden;
 }
 
@@ -8,7 +9,8 @@
   position: relative;
   font-size: 0;
 
-  .field__item {
+  > .field__item,
+  > .views-row {
     height: auto;
     display: inline-block;
     position: inherit;
@@ -32,7 +34,8 @@
   animation: #{$duration}s slidy-#{$items} infinite;  
   width: (100% * $items);
   
-  .field__item {
+  > .field__item,
+  > .views-row {
     width: (100% / $items);
     height: auto;
     display: inline-block;
