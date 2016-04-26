@@ -1,0 +1,20 @@
+.block-views-blockfrontpage-block-1 {
+  .carousel-inner-wrapper {
+    display: flex;
+    align-items: stretch;
+  }
+  
+  .carousel-image {
+    flex-grow: 1;
+  }
+  
+  .carousel-text {
+    display: block;
+    flex-basis: 15em;
+    flex-grow: 1;
+    padding: 1em;
+    font-size: initial;
+    background: $grey-dark;
+    color: $white;
+  }
+}
