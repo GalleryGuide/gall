@@ -3,5 +3,6 @@ global:
     theme:
       css/gall.css: {}
   js:
-    js/vendor/cash.min.js: {}
     js/gall.js: {}
+  dependencies:
+    - core/jquery
