@@ -2,40 +2,9 @@
   background: $red;
 }
 
-
-.menu--primary-links {
-  position: relative;
-  clear: both;
-  background: $grey-dark;
-  color: $white;
-  
-  a {
-    color: $white;
-  }
-  
-  .menu {
-    margin: 0;
-
-    .menu {
-      position: absolute;
-      top: 1.6em;
-      left: -9999em;
-      width: 100%;
-      background: $red;
-    }
-  }
-  
-  .menu-item--active-trail {
-    @include active-link;
-  }
-
-  .menu-item {
-    &:hover,
-    &:focus,
-    &.has-focus {
-      @include active-link;
-    }
-  }
+.menu {
+  margin: 0;
+  padding: 0;
 }
 
 .menu-item {
@@ -70,5 +39,28 @@
       z-index: 2;
     }
   }
+}
 
+.menu--primary-links {
+  position: relative;
+  clear: both;
+  background: $grey-dark;
+  color: $white;
+  
+  a {
+    color: $white;
+  }
+  
+  .menu-item--active-trail {
+    @include active-link;
+  }
+
+  .menu-item {
+    &:hover,
+    &:focus,
+    &.has-focus,
+    .is-active {
+      @include active-link;
+    }
+  }
 }
