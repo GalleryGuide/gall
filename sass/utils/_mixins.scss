@@ -143,9 +143,10 @@
     background: $grey-translucent;
     color: $white;
     margin: 0;
-    padding: .2em;
+    padding: .25em;
     font-weight: normal;
-    font-size: 1.25em;
+    font-size: 1.1em;
+    text-align: center;
     z-index: 1;
   }
 }
@@ -183,7 +184,7 @@
       &.is-active,
       &:hover,
       &:focus {
-        background: $orange;
+        background: $grey-dark;
       }
     }
   }

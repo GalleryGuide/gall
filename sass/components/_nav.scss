@@ -29,9 +29,12 @@
     @include active-link;
   }
 
-  .menu-item:hover,
-  .menu-item:focus {
-    @include active-link;    
+  .menu-item{
+    &:hover,
+    &:focus,
+    &.has-focus {
+      @include active-link;
+    }
   }
 }
 
