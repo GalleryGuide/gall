@@ -60,7 +60,7 @@ linters:
       - font-weight
 
   PropertyUnits:
-    global: ['em', 'rem', '%'] # Allow relative units globally
+    global: ['em', 'rem', '%', 'vh', 'vw'] # Allow relative units globally
     properties:
       border: ['px'] # Pixels only allowed for border
       border-bottom-width: ['px']
