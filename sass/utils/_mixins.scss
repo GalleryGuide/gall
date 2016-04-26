@@ -153,6 +153,13 @@
     text-align: center;
     z-index: 1;
   }
+  
+  &:hover,
+  &.has-focus {
+    h2 {
+      top: 0;
+    }
+  }
 }
 
 /// A set of tiles.

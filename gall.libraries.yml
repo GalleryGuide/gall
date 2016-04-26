@@ -5,4 +5,5 @@ global:
   js:
     js/gall.js: {}
   dependencies:
+    - core/drupal
     - core/jquery
