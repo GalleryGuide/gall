@@ -141,6 +141,7 @@
   
   h2 {
     position: absolute;
+    top: 75%;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -152,6 +153,7 @@
     font-size: 1.1em;
     text-align: center;
     z-index: 1;
+    transition: top 0.25s;
   }
   
   &:hover,
