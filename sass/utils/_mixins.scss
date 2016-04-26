@@ -133,8 +133,12 @@
 
 @mixin tile {
   position: relative;
-  width: 13.75em;
-
+  width: 11.75em;
+  
+  @include breakpoint(tablet) {
+    width: 13.75em;  
+  }
+  
   h2 {
     position: absolute;
     bottom: 0;
@@ -156,7 +160,11 @@
 @mixin tiles {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  
+  @include breakpoint(laptop) {
+    justify-content: space-between;  
+  }
 
   .views-row {
     margin-bottom: 2em;
