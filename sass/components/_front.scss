@@ -1,4 +1,10 @@
-.block-views-blockfrontpage-block-1 {
+.path-frontpage {
+  .page-title {
+    @include element-invisible;
+  }
+}
+
+.view-frontpage {
   .carousel-inner-wrapper {
     display: flex;
     flex-wrap: wrap;
