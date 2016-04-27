@@ -1,0 +1,130 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>The Gallery Guide - v0.0.0</title><link rel="stylesheet" href="assets/css/main.css"><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="The Gallery Guide - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="Release the docs!"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/GalleryGuide/gall">The Gallery Guide - v0.0.0</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-mixin"><a href="#undefined-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="carousel" data-type="mixin"><a href="#undefined-mixin-carousel">carousel</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="element-invisible" data-type="mixin"><a href="#undefined-mixin-element-invisible">element-invisible</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="element-invisible-off" data-type="mixin"><a href="#undefined-mixin-element-invisible-off">element-invisible-off</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="element-focusable" data-type="mixin"><a href="#undefined-mixin-element-focusable">element-focusable</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="hide-text" data-type="mixin"><a href="#undefined-mixin-hide-text">hide-text</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="breakpoint" data-type="mixin"><a href="#undefined-mixin-breakpoint">breakpoint</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="icon-inline" data-type="mixin"><a href="#undefined-mixin-icon-inline">icon-inline</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="icon-block" data-type="mixin"><a href="#undefined-mixin-icon-block">icon-block</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="tile" data-type="mixin"><a href="#undefined-mixin-tile">tile</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="tiles" data-type="mixin"><a href="#undefined-mixin-tiles">tiles</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="glossary" data-type="mixin"><a href="#undefined-mixin-glossary">glossary</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-function"><a href="#undefined-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="em" data-type="function"><a href="#undefined-function-em">em</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="undefined-mixin-carousel"><h3 class="item__heading"><a class="item__name" href="#mixin-carousel">carousel</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin carousel($items, $speed: 6) { 
+  $duration: $items * $speed;
+    
+  animation: #{$duration}s slidy-#{$items} infinite;  
+  width: (100% * $items);
+  
+  .field__item {
+    width: (100% / $items);
+    height: auto;
+    display: inline-block;
+    position: inherit;
+  }
+ }" data-collapsed="@mixin carousel($items, $speed: 6) { ... }"><code>@mixin carousel($items, $speed: 6) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set up image carousels.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$items</code></th><td data-label="desc"><p>the number of items</p></td><td data-label="type"><code>Int</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$speed</code></th><td data-label="desc"><p>the duration of each item in seconds</p></td><td data-label="type"><code>Int</code></td><td data-label="default"><code>6</code></td></tr></tbody></table></section><section class="main__item container item" id="undefined-mixin-element-invisible"><h3 class="item__heading"><a class="item__name" href="#mixin-element-invisible">element-invisible</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin element-invisible() { 
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+ }" data-collapsed="@mixin element-invisible() { ... }"><code>@mixin element-invisible() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Makes an element visually hidden, but accessible. See <a href="http://snook.ca/archives/html_and_css/hiding-content-for-accessibility">http://snook.ca/archives/html_and_css/hiding-content-for-accessibility</a></p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-element-focusable"><code>element-focusable</code></a></li></ul></section><section class="main__item container item" id="undefined-mixin-element-invisible-off"><h3 class="item__heading"><a class="item__name" href="#mixin-element-invisible-off">element-invisible-off</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin element-invisible-off() { 
+  position: static !important;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: auto;
+ }" data-collapsed="@mixin element-invisible-off() { ... }"><code>@mixin element-invisible-off() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Turns off the element-invisible effect.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-element-focusable"><code>element-focusable</code></a></li></ul></section><section class="main__item container item" id="undefined-mixin-element-focusable"><h3 class="item__heading"><a class="item__name" href="#mixin-element-focusable">element-focusable</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin element-focusable() { 
+  @include element-invisible;
+
+  &amp;:active,
+  &amp;:focus {
+    @include element-invisible-off;
+  }
+ }" data-collapsed="@mixin element-focusable() { ... }"><code>@mixin element-focusable() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Makes an element visually hidden by default, but visible when focused.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-element-invisible"><code>element-invisible</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-element-invisible-off"><code>element-invisible-off</code></a></li></ul></section><section class="main__item container item" id="undefined-mixin-hide-text"><h3 class="item__heading"><a class="item__name" href="#mixin-hide-text">hide-text</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin hide-text() { 
+  text-indent: -9999px;
+  white-space: nowrap;
+  overflow: hidden;
+ }" data-collapsed="@mixin hide-text() { ... }"><code>@mixin hide-text() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Hide text of an element, for example when applying an image sprite.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="undefined-mixin-breakpoint"><h3 class="item__heading"><a class="item__name" href="#mixin-breakpoint">breakpoint</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin breakpoint() { 
+  @if $point == widescreen {
+    @media only screen and (min-width: 1240px) {
+      @content;
+    }
+  } @else if $point == desktop {
+    @media only screen and (min-width: 1030px) {
+      @content;
+    }
+  } @else if $point == laptop {
+    @media only screen and (min-width: 900px) {
+      @content;
+    }
+  } @else if $point == laptoponly {
+    @media only screen and (min-width: 900px) and (max-width: 1030px) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  } @else if $point == phablet {
+    @media only screen and (min-width: 481px) {
+      @content;
+    }
+  } @else if $point == smallonly {
+    @media only screen and (max-width: 899px) {
+      @content;
+    }
+  } @else if $point == mobileonly {
+    @media only screen and (max-width: 480px) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $point) {
+      @content;
+    }
+  }
+ }" data-collapsed="@mixin breakpoint() { ... }"><code>@mixin breakpoint() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Breakpoints</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive).</p></section><section class="main__item container item" id="undefined-mixin-icon-inline"><h3 class="item__heading"><a class="item__name" href="#mixin-icon-inline">icon-inline</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin icon-inline() { 
+  display: inline-block;
+  content: &#39; &#39;;
+ }" data-collapsed="@mixin icon-inline() { ... }"><code>@mixin icon-inline() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set up an icon to display inline-block.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="undefined-mixin-icon-block"><h3 class="item__heading"><a class="item__name" href="#mixin-icon-block">icon-block</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin icon-block() { 
+  display: block;
+  content: &#39; &#39;;
+ }" data-collapsed="@mixin icon-block() { ... }"><code>@mixin icon-block() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set up an icon to display as a block.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="undefined-mixin-tile"><h3 class="item__heading"><a class="item__name" href="#mixin-tile">tile</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin tile() { 
+  position: relative;
+  width: 13.75em;
+
+  h2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: $grey-translucent;
+    color: $white;
+    margin: 0;
+    padding: .2em;
+    font-weight: normal;
+    font-size: 1.25em;
+    z-index: 1;
+  }
+ }" data-collapsed="@mixin tile() { ... }"><code>@mixin tile() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>A square block with a translucent heading over it.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="undefined-mixin-tiles"><h3 class="item__heading"><a class="item__name" href="#mixin-tiles">tiles</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin tiles() { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .views-row {
+    margin-bottom: 2em;
+  }
+ }" data-collapsed="@mixin tiles() { ... }"><code>@mixin tiles() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>A set of tiles.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="undefined-mixin-glossary"><h3 class="item__heading"><a class="item__name" href="#mixin-glossary">glossary</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin glossary() { 
+  justify-content: center;
+  margin-bottom: 2em;
+  background: $grey-light;
+
+  .views-summary {
+    border: 1px solid $white;
+    
+    a {
+      display: inline-block;
+      padding: 0.5em;
+      width: 1.75em;
+      background: $red;
+      color: $white;
+      text-align: center;
+
+      &amp;.is-active,
+      &amp;:hover,
+      &amp;:focus {
+        background: $orange;
+      }
+    }
+  }
+ }" data-collapsed="@mixin glossary() { ... }"><code>@mixin glossary() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Navigation for a glossary.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section></section><section class="main__sub-section" id="undefined-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="undefined-function-em"><h3 class="item__heading"><a class="item__name" href="#function-em">em</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function em() { 
+  @return #{$pixels/$context}em
+ }" data-collapsed="@function em() { ... }"><code>@function em() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Convert a pixel value to ems.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --><a class="project-info__name" href="https://github.com/GalleryGuide/gall">The Gallery Guide</a><!-- Version --> <span class="project-info__version">- v0.0.0</span><!-- License --> <span class="project-info__license">, under ISC</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>
