@@ -15,4 +15,9 @@
   &.node--view-mode-teaser {
     @include tile;
   }
+  
+  .field--name-tags1,
+  .field--name-artists {
+    @include block-dark;
+  }
 }

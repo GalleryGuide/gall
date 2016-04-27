@@ -114,6 +114,22 @@
   }
 }
 
+/// Block with dark background and light text
+
+@mixin block-dark {
+  background: $grey-dark;
+  color: $white;
+  
+  .field__label {
+    @include subheading;
+    padding-left: .5em;
+  }
+  
+  .field__items {
+    padding: .5em;
+  }
+}
+
 /// Sub-heading
 
 @mixin subheading {

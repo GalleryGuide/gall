@@ -15,16 +15,16 @@
   .overlay-text {
     position: absolute;
     top: 75%;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
-    background: $grey-translucent;
-    color: $white;
     margin: 0;
     padding: .25em;
+    background: $grey-translucent;
+    color: $white;
     text-align: center;
     z-index: 1;
-    transition: top 0.25s;
+    transition: top .25s;
 
     .views-field {
       @include element-invisible;
@@ -36,11 +36,11 @@
 
   h2 {
     height: 2.4em;
-    overflow: hidden;
     margin: 0;
     padding: 0;
     font-weight: normal;
     font-size: 1.1em;
+    overflow: hidden;
   }
 
   &:hover,
