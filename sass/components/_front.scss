@@ -1,7 +1,12 @@
 .block-views-blockfrontpage-block-1 {
   .carousel-inner-wrapper {
     display: flex;
+    flex-wrap: wrap;
     align-items: stretch;
+
+    @include breakpoint(phablet) {
+      flex-wrap: nowrap;
+    }
   }
   
   .carousel-image {
