@@ -47,7 +47,7 @@
   }
 }
 
-@for $i from 2 through 5 {
+@for $i from 2 through 10 {
   .carousel-#{$i} {
     @include carousel($i);
   }
