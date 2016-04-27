@@ -10,3 +10,9 @@
     @include glossary;
   }
 }
+
+.node--type-gallery{
+  &.node--view-mode-teaser {
+    @include tile;
+  }
+}
