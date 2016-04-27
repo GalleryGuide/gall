@@ -87,60 +87,6 @@
   }
 }
 
-/// A square block with a translucent heading over it.
-
-@mixin tile {
-  position: relative;
-  width: 11.75em;
-  
-  @include breakpoint($tablet) {
-    width: 13.75em;  
-  }
-
-  .overlay-text {
-    position: absolute;
-    top: 75%;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: $grey-translucent;
-    color: $white;
-    margin: 0;
-    padding: .25em;
-    text-align: center;
-    z-index: 1;
-    transition: top 0.25s;
-  }
-  
-  h2 {
-    font-weight: normal;
-    font-size: 1.1em;
-  }
-  
-  &:hover,
-  &.has-focus {
-    .overlay-text {
-      top: 0;
-    }
-  }
-}
-
-/// A set of tiles.
-
-@mixin tiles {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  
-  @include breakpoint($tablet) {
-    justify-content: space-between;  
-  }
-
-  .views-row {
-    margin-bottom: 2em;
-  }
-}
-
 /// Navigation for a glossary.
 
 @mixin glossary {

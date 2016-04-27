@@ -4,10 +4,6 @@
   .view-content {
     @include tiles;
   }
-  
-  .views-row {
-    @include tile;
-  }
 }
 
 .attachment {
