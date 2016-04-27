@@ -93,7 +93,7 @@
   position: relative;
   width: 11.75em;
   
-  @include breakpoint(tablet) {
+  @include breakpoint($tablet) {
     width: 13.75em;  
   }
   
@@ -129,7 +129,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   
-  @include breakpoint(laptop) {
+  @include breakpoint($tablet) {
     justify-content: space-between;  
   }
 

@@ -10,7 +10,7 @@
     flex-wrap: wrap;
     align-items: stretch;
 
-    @include breakpoint(phablet) {
+    @include breakpoint($phablet) {
       flex-wrap: nowrap;
     }
   }
