@@ -1,0 +1,26 @@
+.adsense {
+
+  width: $mobile-small;
+  font-size: 0;
+
+  @include breakpoint($phablet) {
+    width: $phablet;
+  }
+
+  @include breakpoint($tablet) {
+    width: $tablet;
+  }
+
+  @include breakpoint($laptop) {
+    width: $laptop;
+  }
+
+  @include breakpoint($desktop) {
+    width: $desktop;
+  }
+
+  @include breakpoint($widescreen) {
+    width: $widescreen;
+  }
+  
+}
