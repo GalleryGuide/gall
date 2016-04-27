@@ -87,10 +87,33 @@ function gall_preprocess_block(&$variables) {
 * Implements hook_theme_suggestions_field_alter().
 */
 function gall_theme_suggestions_field_alter(array &$suggestions, array $variables) {
-    /*$element = $variables['element'];
+  /*$element = $variables['element'];
+  $suggestions[] = 'field__' . $element['#view_mode'];
+  $suggestions[] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'];*/
+}
 
-    $suggestions[] = 'field__' . $element['#view_mode'];
-    $suggestions[] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'];*/
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function gall_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+//  dpm($hook);
+}
+
+/**
+ * Implements hook_theme_suggestions_views_view_fields_alter().
+ */
+function gall_theme_suggestions_views_view_fields_alter(array &$suggestions, array $variables) {
+  // Set up views to use the tiles template.
+  $tiles_views = array(
+    'exhibitions_a_z',
+    'exhibitions_new',
+    'galleries_a_z',
+    'galleries_new'
+  );
+  $view_id = $variables['view']->id();
+  if (in_array($view_id, $tiles_views)) {
+    $suggestions[] = 'views_view_fields__tiles';
+  }
 }
 
 /**
@@ -162,3 +185,11 @@ function gall_preprocess_menu_local_task(&$variables) {
     //$variables['element']['#link']['url']->setOption('attributes', array('class'=>'rounded'));
 }
 
+/**
+ * Implements template_preprocess_views_view_fields().
+ */
+function gall_preprocess_views_view_fields(&$variables) {
+//  dpm($variables);
+  
+  //views-view-fields--tiles
+}

@@ -96,8 +96,8 @@
   @include breakpoint($tablet) {
     width: 13.75em;  
   }
-  
-  h2 {
+
+  .overlay-text {
     position: absolute;
     top: 75%;
     bottom: 0;
@@ -107,16 +107,19 @@
     color: $white;
     margin: 0;
     padding: .25em;
-    font-weight: normal;
-    font-size: 1.1em;
     text-align: center;
     z-index: 1;
     transition: top 0.25s;
   }
   
+  h2 {
+    font-weight: normal;
+    font-size: 1.1em;
+  }
+  
   &:hover,
   &.has-focus {
-    h2 {
+    .overlay-text {
       top: 0;
     }
   }
