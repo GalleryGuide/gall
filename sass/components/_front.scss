@@ -9,7 +9,9 @@
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-
+    background: $grey-dark;
+    color: $white;
+    
     @include breakpoint($phablet) {
       flex-wrap: nowrap;
     }
@@ -25,7 +27,5 @@
     flex-grow: 1;
     padding: 1em;
     font-size: initial;
-    background: $grey-dark;
-    color: $white;
   }
 }
