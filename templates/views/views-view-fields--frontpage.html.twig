@@ -29,11 +29,41 @@
  * @see template_preprocess_views_view_fields()
  */
 #}
-<div class="carousel-inner-wrapper">
+
+{% set separate_fields = ['field_images', 'title', 'path'] %}
+
+<a href="{{ fields.path.content }}" class="carousel-inner-wrapper">
   <div class="carousel-image">
     {{ fields.field_images.content }}
   </div>
   <div class="carousel-text">
     <h2>{{ fields.title.content }}</h2>
-  </div>  
-</div>
+    {% for delta, field in fields -%}
+      {%- if delta not in separate_fields -%}
+        {{ field.separator }}
+  
+        {%- if field.wrapper_element -%}
+          <{{ field.wrapper_element }}{{ field.wrapper_attributes }}>
+        {%- endif %}
+  
+        {%- if field.label -%}
+          {%- if field.label_element -%}
+            <{{ field.label_element }}{{ field.label_attributes }}
+            >{{ field.label }}{{ field.label_suffix }}</{{ field.label_element }}>
+          {%- else -%}
+            {{ field.label }}{{ field.label_suffix }}
+          {%- endif %}
+        {%- endif %}
+        {%- if field.element_type -%}
+            <{{ field.element_type }}{{ field.element_attributes }}>{{ field.content }}
+          </{{ field.element_type }}>
+        {%- else -%}
+          {{ field.content }}
+        {%- endif %}
+        {%- if field.wrapper_element -%}
+          </{{ field.wrapper_element }}>
+        {%- endif %}
+      {%- endif %}
+    {%- endfor %}
+  </div>
+</a>
