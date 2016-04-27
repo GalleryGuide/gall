@@ -110,8 +110,9 @@ function gall_theme_suggestions_views_view_fields_alter(array &$suggestions, arr
   $tiles_views = array(
     'exhibitions_a_z',
     'exhibitions_new',
+    'exhibitions_this_gallery',
     'galleries_a_z',
-    'galleries_new'
+    'galleries_new',
   );
   $view_id = $variables['view']->id();
   if (in_array($view_id, $tiles_views)) {

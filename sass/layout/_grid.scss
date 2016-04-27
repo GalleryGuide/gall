@@ -18,4 +18,8 @@ main {
 .region-content-bottom {
   display: flex;
   justify-content: space-between;
+
+  .block-title {
+    @include subheading;
+  }
 }
