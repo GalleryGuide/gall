@@ -1,7 +1,10 @@
+@import '../bower_components/breakpoint-sass/stylesheets/breakpoint';
+
 @import 'utils/variables';
 @import 'utils/mixins';
 @import 'utils/icons';
 
+@import 'base/breakpoints';
 @import 'base/reset';
 @import 'base/sprites';
 @import 'base/typography';

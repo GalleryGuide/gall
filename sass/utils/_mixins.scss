@@ -58,48 +58,6 @@
   @return #{$pixels/$context}em
 }
 
-/// Breakpoints
-
-@mixin breakpoint($point) {
-  @if $point == widescreen {
-    @media only screen and (min-width: 1240px) {
-      @content;
-    }
-  } @else if $point == desktop {
-    @media only screen and (min-width: 1030px) {
-      @content;
-    }
-  } @else if $point == laptop {
-    @media only screen and (min-width: 900px) {
-      @content;
-    }
-  } @else if $point == laptoponly {
-    @media only screen and (min-width: 900px) and (max-width: 1030px) {
-      @content;
-    }
-  } @else if $point == tablet {
-    @media only screen and (min-width: 768px) {
-      @content;
-    }
-  } @else if $point == phablet {
-    @media only screen and (min-width: 481px) {
-      @content;
-    }
-  } @else if $point == smallonly {
-    @media only screen and (max-width: 899px) {
-      @content;
-    }
-  } @else if $point == mobileonly {
-    @media only screen and (max-width: 480px) {
-      @content;
-    }
-  } @else {
-    @media only screen and (min-width: $point) {
-      @content;
-    }
-  }
-}
-
 /// Set up an icon to display inline-block.
 
 @mixin icon-inline {
