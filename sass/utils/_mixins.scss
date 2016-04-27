@@ -113,3 +113,13 @@
     }
   }
 }
+
+/// Sub-heading
+
+@mixin subheading {
+  padding: .25em;
+  background: $red;
+  color: $white;
+  font-weight: normal;
+  font-size: 1.25em;
+}

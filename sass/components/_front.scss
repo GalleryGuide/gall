@@ -6,6 +6,10 @@
   .block-views-blockexhibitions-new-block-1,
   .block-views-blockgalleries-new-block-1 {
     max-width: 30em;
+    
+    .block-title {
+      @include subheading;
+    }
   }
 }
 

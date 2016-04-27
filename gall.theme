@@ -81,6 +81,9 @@ function gall_preprocess_block(&$variables) {
     $variables['site_logo'] = str_replace('.svg', '.gif', $variables['site_logo']);
     $variables['site_name'] = '';
   }
+
+  // Add a class to all block headings.
+  $variables['title_attributes']['class'][] = 'block-title';
 }
 
 /**
