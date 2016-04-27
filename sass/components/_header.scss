@@ -5,21 +5,26 @@ header {
 }
 
 .region-header {
-  position: relative;  
+  position: relative;
 }
 
 .block-system-branding-block {
   float: left;
+  width: 14em;
+  
+  @include breakpoint($tablet) {
+    width: auto;
+  }
 }
 
 .social-links {
   float: right;
   padding: .5em 0;
   font-size: 2em;
-  
+
   a {
     @include hover-red-box;
-    
+
     display: inline-block;
     height: 1.5em;
     padding: .25em;
@@ -27,8 +32,12 @@ header {
 }
 
 .menu--account {
-  position: absolute;
-  top: 7em;
-  right: 0;
-  z-index: 5;
+  float: left;
+  
+  @include breakpoint($laptop) {
+    position: absolute;
+    top: 7em;
+    right: 0;
+    z-index: 5;
+  }
 }
