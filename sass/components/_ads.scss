@@ -1,8 +1,11 @@
-.adsense {
-
-  width: $mobile-small;
+.region-preheader,
+.region-postfooter {
   font-size: 0;
+}
 
+.adsense {
+  width: $mobile-small;
+  
   @include breakpoint($phablet) {
     width: $phablet;
   }
