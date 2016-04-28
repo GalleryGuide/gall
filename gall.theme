@@ -108,6 +108,7 @@ function gall_theme_suggestions_alter(array &$suggestions, array $variables, $ho
 function gall_theme_suggestions_views_view_fields_alter(array &$suggestions, array $variables) {
   // Set up views to use the tiles template.
   $tiles_views = array(
+    'view-exhibitions',
     'exhibitions_a_z',
     'exhibitions_new',
     'exhibitions_this_gallery',
