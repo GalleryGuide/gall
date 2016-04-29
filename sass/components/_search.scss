@@ -1,6 +1,7 @@
 .search-block-form {
   float: right;
   clear: right;
+  margin-bottom: 1em;
 
   .form-submit {
     @include sprite($search);
