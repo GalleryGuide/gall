@@ -4,16 +4,25 @@
    */
   Drupal.behaviors.gallTiles = {
     attach: function (context, settings) {
-      var $tiles = $(context).find('.view-galleries-a-z .views-row a');
-      if ($tiles.length) {
-        $tiles.on('focus mouseenter', function() {
-          $('.views-row.has-focus').removeClass('has-focus');
-          $(this).closest('.views-row').addClass('has-focus');
-        }).on('blur mouseleave', function() {
-          $(this).closest('.views-row').removeClass('has-focus');
-        });
-      }
+      var $tiles = $(context).find('.tiles-view-tile');
+      // TODO: when hovering, take focus style off others?
+      $tiles.on('hover', function() {
+        
+      });
     }
   };
+
+  /**
+   * Make menu work nicely on keyboard.
+   */
+  Drupal.behaviors.gallMenu = {
+    attach: function (context, settings) {
+      $(context).find('.menu__link').on('focus', function () {
+        $(this).closest('.menu-item--expanded').addClass('has-focus');
+      }).on('blur', function () {
+        $(this).closest('.menu-item--expanded').removeClass('has-focus');
+      });
+    }
+  }
 
 })(jQuery, Drupal);
