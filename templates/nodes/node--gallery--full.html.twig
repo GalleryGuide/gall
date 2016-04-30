@@ -74,14 +74,36 @@
 <article{{ attributes.addClass(classes) }}>
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
+    <div class="gallery__top">
+      <div class="gallery__details">
+        {{ content.field_address }}
+        {{ content.field_website }}
+        {{ content.field_email }}
+        {{ content.field_admission_std }}
+        {{ content.field_admission_conc }}
+        {{ content.field_facilities }}
+        {{ content.field_associated }}
+      </div>
+
+      {{ content.field_images }}
+
+      {{ content.tags }}
+      {{ content.artists }}
+    </div>
+    
+    <div class="gallery__body">
+      {{ content.body }}
+      {{ content.field_location }}      
+    </div>
+
+    <div class="gallery__links">
+      {% if logged_in %}
+        <a href="/node/add/exhibition?edit?edit[field_gallery]={{ node.id }}">{{ 'Add a new exhibition at this gallery'|t }}</a>
+        <a href="/node/{{ node.id }}/edit">{{ 'Edit this gallery'|t }}</a>
+      {% else %}
+        <a href="/user?destination=node/{{ node.id }}">{{ 'Log in or register to edit this gallery'|t }}</a>
+      {% endif %}
+    </div>
   </div>
-  
-  {% if logged_in %}
-    <a href="/node/add/exhibition?edit?edit[field_gallery]={{ node.id }}">{{ 'Add a new exhibition at this gallery'|t }}</a>
-    <a href="/node/{{ node.id }}/edit">{{ 'Edit this gallery'|t }}</a>
-  {% else %}
-    <a href="/user?destination=node/{{ node.id }}">{{ 'Log in or register to edit this gallery'|t }}</a>
-  {% endif %}
   
 </article>
