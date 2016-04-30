@@ -78,7 +78,7 @@ function gall_theme_suggestions_node_alter(array &$suggestions, array $variables
 function gall_preprocess_block(&$variables) {
   if ($variables['attributes']['id'] == 'block-gall-branding') {
     // Use the JPG logo.
-    $variables['site_logo'] = str_replace('.svg', '.gif', $variables['site_logo']);
+    $variables['site_logo'] = str_replace('.svg', '.png', $variables['site_logo']);
     $variables['site_name'] = '';
   }
 
