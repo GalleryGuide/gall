@@ -8,7 +8,10 @@
 .layout-container {
   margin: 0 auto;
   padding: 0 1em;
-  max-width: 64em;
+  
+  @include breakpoint($laptop) {
+    max-width: 64em;
+  }  
 }
 
 main {

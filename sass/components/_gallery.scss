@@ -24,9 +24,14 @@
   }  
   
   .gallery__details {
-    padding: .5em;
+    order: 2;
+    padding: 1.5em;
     background: $grey-dark;
     color: $white;
+
+    @include breakpoint($laptop) {
+      order: 1;
+    }
     
     .field {
       margin-bottom: 1em;
@@ -39,17 +44,52 @@
   }
   
   .field--name-field-images {
+    order: 1;
     max-width: 30em;
-  }
-  
-  .field--name-field-location {
-    max-width: 25em;
-  }
-  
-  .gallery__links {
     
-    a {
-      @include button;
+    @include breakpoint($laptop) {
+      order: 2;
+    }
+  }  
+}
+
+.gallery__body {
+  @include breakpoint($laptop) {
+    display: flex;
+    justify-content: space-between;
+
+    .field--name-body {
+      padding-right: 1em;
     }
   }
+}
+
+.gallery__map {
+  @include breakpoint($laptop) {
+    min-width: 25em;
+  }
+}
+
+.gallery__links {
+  a {
+    @include button;
+  }
+}
+
+.field__label {
+  margin-bottom: .5em;
+}
+
+.address {
+  margin-top: 0;
+}
+
+.office-hours-display {
+  margin-bottom: .25em;
+  display: block;
+}
+
+.office-hours-display-label {
+  display: inline-block;
+  width: 8em;
 }
