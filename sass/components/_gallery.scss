@@ -33,6 +33,12 @@
       order: 1;
     }
     
+    @include breakpoint($tablet-down) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
     .field {
       margin-bottom: 1em;
     }
@@ -45,10 +51,10 @@
   
   .field--name-field-images {
     order: 1;
-    max-width: 30em;
     
     @include breakpoint($laptop) {
       order: 2;
+      max-width: 30em;
     }
   }  
 }
