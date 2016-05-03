@@ -13,15 +13,5 @@ label {
 }
 
 .form-submit {
-  padding: .5em;
-  background: $red;
-  color: $white;
-  border: 0;
-  box-shadow: $shadow;
-  
-  &:hover,
-  &:focus {
-    background: $red-dark;
-    text-decoration: underline;
-  }
+  @include button;
 }

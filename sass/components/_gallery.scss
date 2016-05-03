@@ -11,13 +11,45 @@
   }
 }
 
-.node--type-gallery{
+.node--type-gallery {
   &.node--view-mode-teaser {
     @include tile;
   }
+
+  .gallery__top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2em;
+  }  
   
+  .gallery__details {
+    padding: .5em;
+    background: $grey-dark;
+    color: $white;
+    
+    .field {
+      margin-bottom: 1em;
+    }
+  }
+
   .field--name-tags,
   .field--name-artists {
     @include block-dark;
+  }
+  
+  .field--name-field-images {
+    max-width: 30em;
+  }
+  
+  .field--name-field-location {
+    max-width: 25em;
+  }
+  
+  .gallery__links {
+    
+    a {
+      @include button;
+    }
   }
 }

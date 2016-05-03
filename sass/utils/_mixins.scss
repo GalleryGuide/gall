@@ -120,7 +120,7 @@
   background: $grey-dark;
   color: $white;
   
-  .field__label {
+  > .field__label {
     @include subheading;
     padding-left: .5em;
   }
@@ -138,4 +138,24 @@
   color: $white;
   font-weight: normal;
   font-size: 1.25em;
+}
+
+/// Button
+///
+/// Useful for links etc.
+
+@mixin button {
+  display: inline-block;
+  margin: 0 .5em .5em 0;
+  padding: .5em;
+  background: $red;
+  color: $white;
+  border: 0;
+  box-shadow: $shadow;
+
+  &:hover,
+  &:focus {
+    background: $red-dark;
+    text-decoration: underline;
+  }
 }
