@@ -20,6 +20,7 @@ main {
 
 .region-content-bottom {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   .block-title {

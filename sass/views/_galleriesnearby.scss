@@ -1,11 +1,12 @@
 .view-id-galleries_nearby {
   .views-row {
     display: inline-block;
-    min-width: 15em;
+    width: 15em;
     margin-bottom: 1em;
     
     a {
       display: flex;
+      align-items: center;
     }
   }
 
@@ -15,5 +16,6 @@
 
   h2 {
     font-size: 1em;
+    margin: 0 0 .25em;
   }
 }
