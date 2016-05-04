@@ -1,0 +1,19 @@
+.view-id-galleries_nearby {
+  .views-row {
+    display: inline-block;
+    min-width: 15em;
+    margin-bottom: 1em;
+    
+    a {
+      display: flex;
+    }
+  }
+
+  .gallery__details {
+    padding: .5em;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+}
