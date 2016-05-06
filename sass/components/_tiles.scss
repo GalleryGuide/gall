@@ -6,8 +6,17 @@
   position: relative;
   width: 11.75em;
   height: 11.75em;
+  
+  @include breakpoint(680px 800px) {
+    width: 9.75em;
+    height: 9.75em;
+    
+    .overlay-text {
+      font-size: 0.9em;      
+    }
+  }
 
-  @include breakpoint($tablet) {
+  @include breakpoint($desktop) {
     width: 13.75em;
     height: 13.75em;
   }

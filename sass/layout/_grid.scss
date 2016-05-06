@@ -22,6 +22,16 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  
+  .block {
+    @include breakpoint($mobile) {
+      width: 49%;
+      
+      &.block-views-blockgalleries-nearby-block-1 {
+        width: auto;
+      }
+    }
+  }
 
   .block-title {
     @include subheading;
