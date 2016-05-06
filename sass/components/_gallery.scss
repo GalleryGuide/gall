@@ -43,20 +43,38 @@
       margin-bottom: 1em;
     }
   }
-
-  .field--name-tags,
-  .field--name-artists {
-    @include block-dark;
-  }
   
   .field--name-field-images {
     order: 1;
     
-    @include breakpoint($laptop) {
+    @include breakpoint($tablet) {
       order: 2;
       max-width: 30em;
     }
   }  
+}
+
+.gallery__tags {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .field--name-tags {
+    @include block-dark;
+    margin-bottom: 2em;
+  }
+
+  .field--name-artists {
+    @include block-dark;
+  }
+}
+
+.gallery__admission {
+  .field {
+    width: 8em;
+    float: left;
+  }
 }
 
 .gallery__body {
