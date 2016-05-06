@@ -29,8 +29,12 @@
   .carousel-text {
     display: block;
     flex-basis: 15em;
-    flex-grow: 1;
+    flex-grow: 0;
     padding: 1em;
     font-size: initial;
+    
+    h2 {
+      font-size: 1.25em;
+    }
   }
 }
