@@ -188,6 +188,17 @@ function gall_preprocess_node(&$variables) {
 }
 
 /**
+ * Specific preprocess function for gallery nodes.
+ */
+function gall_preprocess_node_gallery(&$variables) {
+  // Hide opening times if empty.
+  $opening_times = $variables['node']->get('field_openingtimes')->getValue();
+  if (empty($opening_times)) {
+    unset($variables['content']['field_openingtimes']);
+  }
+}
+
+/**
  * Format admission fees.
  *
  * @param array $variables
