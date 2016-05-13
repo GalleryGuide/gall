@@ -74,7 +74,39 @@
 <article{{ attributes.addClass(classes) }}>
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
+    <div class="exhibition__top">
+      <div class="exhibition__details">
+        {{ content.field_date_from }}
+        {{ content.field_date_to }}
+        {{ content.field_exhib_website }}
+
+        <div class="exhibition__admission">
+          <div class="field__label">{{ 'Admission fees'|t }}</div>
+          {% if admission %}
+            <div class="field__item">
+              {{ admission }}
+            </div>
+          {% else %}
+            {{ content.field_admission_std }}
+            {{ content.field_admission_conc }}
+          {% endif %}
+        </div>
+
+        {{ content.field_exhib_gallery }}
+      </div>
+
+      {{ content.field_images }}
+      
+      <div class="exhibition__tags">
+        {{ content.tags }}
+        {{ content.artists }}        
+      </div>
+    </div>
+    
+    <div class="exhibition__body">
+      {{ content.body }}  
+    </div>
+
   </div>
 
   {% if logged_in %}

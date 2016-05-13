@@ -137,8 +137,39 @@ function gall_theme_suggestions_fieldset_alter(array &$suggestions, array $varia
 * Implements hook_preprocess_node().
 */
 function gall_preprocess_node(&$variables) {
-    // Default to turning off byline/submitted.
-    //$variables['display_submitted'] = FALSE;
+  // Set up node type specific preprocess functions.
+  $node_type = $variables['node']->bundle();
+  $function = __FUNCTION__ . '_' . $node_type;
+  if (function_exists($function)) {
+    $function($variables);
+  }
+
+  switch ($node_type) {
+    case 'exhibition':
+    case 'gallery':
+      _gall_format_admission($variables);
+      break;
+  }
+}
+
+/**
+ * Format admission fees.
+ *
+ * @param array $variables
+ *   The variables available in hook_preprocess_node().
+ */
+function _gall_format_admission(&$variables) {
+  $node = $variables['node'];
+
+  // Show zero admission as free.
+  $standard_admission = $node->get('field_admission_std');
+  $admission_fee = $standard_admission->value;
+
+  if ($admission_fee == 0) {
+    $variables['admission'] = array(
+      '#markup' => t('Free'),
+    );
+  }
 }
 
 /**

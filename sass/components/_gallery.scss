@@ -17,57 +17,29 @@
   }
 
   .gallery__top {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 2em;
+    @include top-block;
   }  
   
   .gallery__details {
+    @include details-block;
     order: 2;
-    padding: 1.5em;
-    background: $grey-dark;
-    color: $white;
 
     @include breakpoint($laptop) {
       order: 1;
     }
-    
-    @include breakpoint($tablet-down) {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-    
+
     .field {
       margin-bottom: 1em;
     }
   }
   
   .field--name-field-images {
-    order: 1;
-    
-    @include breakpoint($tablet) {
-      order: 2;
-      max-width: 30em;
-    }
-  }  
+    @include image-main;
+  }
 }
 
 .gallery__tags {
-  order: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  .field--name-tags {
-    @include block-dark;
-    margin-bottom: 2em;
-  }
-
-  .field--name-artists {
-    @include block-dark;
-  }
+  @include tags-wrapper;
 }
 
 .gallery__admission {

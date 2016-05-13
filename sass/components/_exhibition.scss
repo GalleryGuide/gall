@@ -12,3 +12,22 @@
     @include glossary;
   }
 }
+
+.node--type-exhibition {
+  .field--name-field-images {
+    @include image-main;
+  }
+}
+
+.exhibition__top {
+  @include top-block;
+}
+
+.exhibition__details {
+  @include details-block;
+}
+
+.exhibition__tags {
+  @include tags-wrapper;
+}
+

@@ -83,8 +83,14 @@
         
         <div class="gallery__admission">
           <div class="field__label">{{ 'Admission fees'|t }}</div>
-          {{ content.field_admission_std }}
-          {{ content.field_admission_conc }}          
+          {% if admission %}
+            <div class="field__item">
+              {{ admission }}
+            </div>            
+          {% else %}
+            {{ content.field_admission_std }}
+            {{ content.field_admission_conc }}
+          {% endif %}
         </div>
 
         {{ content.field_facilities }}
