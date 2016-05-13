@@ -2,4 +2,8 @@
   .page-title {
     @include element-invisible;
   }
+
+  .geolocation-common-map-container {
+    height: 40em;
+  }
 }
