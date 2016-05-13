@@ -203,3 +203,11 @@ function gall_views_pre_render($view) {
     }
   }
 }
+
+/**
+ * Implementes hook_form_FORM_ID_alter().
+ */
+function gall_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Add a placeholder to the search input.
+  $form['keys']['#attributes']['placeholder'] = t('Search');
+}
