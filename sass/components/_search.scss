@@ -2,6 +2,7 @@
   float: right;
   clear: right;
   margin-bottom: 1em;
+  color: $grey-dark;
 
   .form-submit {
     @include sprite($search);
