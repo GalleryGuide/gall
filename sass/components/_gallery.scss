@@ -1,8 +1,6 @@
 .view-galleries-a-z,
 .view-galleries-new {
-  .view-content {
-    @include tiles;
-  }
+  @include tiles;
 }
 
 .attachment {

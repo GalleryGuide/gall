@@ -1,8 +1,6 @@
 .view-artists-new,
 .view-artists-by-tag {
-  .view-content {
-    @include tiles;
-  }
+  @include tiles;
 
   .views-row {
     @include tile;

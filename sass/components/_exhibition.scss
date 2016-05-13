@@ -2,9 +2,7 @@
 .view-exhibitions-a-z,
 .view-exhibitions-new,
 .view-exhibitions-this-gallery {
-  .view-content {
-    @include tiles;
-  }
+  @include tiles;
 }
 
 .attachment {

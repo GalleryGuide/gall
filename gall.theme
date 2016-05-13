@@ -236,6 +236,16 @@ function gall_views_pre_render($view) {
 }
 
 /**
+ * Implements template_preprocess_views_view.
+ */
+function gall_preprocess_views_view(&$variables) {
+  // If there are fewer than 4 items, the gap is too big.
+  if (count($variables['view']->result) < 4) {
+    $variables['attributes']['class'][] = 'views__result__small';
+  }
+}
+
+/**
  * Implementes hook_form_FORM_ID_alter().
  */
 function gall_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {

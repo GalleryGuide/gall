@@ -6,13 +6,13 @@
   position: relative;
   width: 11.75em;
   height: 11.75em;
-  
+
   @include breakpoint(680px 800px) {
     width: 9.75em;
     height: 9.75em;
-    
+
     .overlay-text {
-      font-size: 0.9em;      
+      font-size: 0.9em;
     }
   }
 
@@ -61,7 +61,7 @@
         @include element-invisible-off;
       }
     }
-    
+
     h2 {
       height: auto;
       margin-top: 1em;
@@ -72,15 +72,29 @@
 /// A set of tiles.
 
 @mixin tiles {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  .view-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
-  @include breakpoint($tablet) {
-    justify-content: space-between;
+    @include breakpoint($tablet) {
+      justify-content: space-between;
+    }
+  }
+
+  // If there are fewer than 4 items, the gap is too big.
+  &.views__result__small .view-content {
+    @include breakpoint($tablet) {
+      justify-content: flex-start;
+
+      .views-row {
+        margin-right: 2em;
+      }
+    }
   }
 
   .views-row {
+    @include tile;
     margin-bottom: 2em;
   }
 }
