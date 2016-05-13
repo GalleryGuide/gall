@@ -31,3 +31,8 @@
   @include tags-wrapper;
 }
 
+.exhibition__links {
+  a {
+    @include button;
+  }
+}
