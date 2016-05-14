@@ -193,6 +193,7 @@
 
   @include breakpoint($tablet) {
     flex-direction: column;
+    flex-basis: 15em;
   }
 
   .field {
