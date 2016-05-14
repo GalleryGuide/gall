@@ -76,6 +76,15 @@
   content: ' ';
 }
 
+/// Text with ellipsis
+
+@mixin text-ellipsis {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @mixin hover-red-box {
   border: 1px solid transparent;
 
@@ -173,6 +182,13 @@
   padding: 1.5em;
   background: $grey-dark;
   color: $white;
+  flex-basis: $details_block_width;
+
+  .field {
+    max-width: $details_block_width;
+    margin-bottom: 1em;
+  }
+
 
   @include breakpoint($tablet-down) {
     display: flex;
