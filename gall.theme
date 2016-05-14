@@ -211,7 +211,7 @@ function _gall_format_admission(&$variables) {
   $standard_admission = $node->get('field_admission_std');
   $admission_fee = $standard_admission->value;
 
-  if ($admission_fee == 0) {
+  if (!empty($admission_fee) && $admission_fee == 0) {
     $variables['admission'] = array(
       '#markup' => t('Free'),
     );

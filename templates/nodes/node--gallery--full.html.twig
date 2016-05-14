@@ -80,18 +80,20 @@
         {{ content.field_website }}
         {{ content.field_email }}
         {{ content.field_openingtimes }}
-        
-        <div class="gallery__admission field">
-          <div class="field__label">{{ 'Admission fees'|t }}</div>
-          {% if admission %}
-            <div class="field__item">
-              {{ admission }}
-            </div>            
-          {% else %}
-            {{ content.field_admission_std }}
-            {{ content.field_admission_conc }}
-          {% endif %}
-        </div>
+
+        {% if admission or content.field_admission_std|render %}
+          <div class="gallery__admission field">
+            <div class="field__label">{{ 'Admission fees'|t }}</div>
+            {% if admission %}
+              <div class="field__item">
+                {{ admission }}
+              </div>
+            {% else %}
+              {{ content.field_admission_std }}
+              {{ content.field_admission_conc }}
+            {% endif %}
+          </div>
+        {% endif %}
 
         {{ content.field_facilities }}
         {{ content.field_associated }}
