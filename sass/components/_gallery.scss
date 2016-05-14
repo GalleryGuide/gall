@@ -15,6 +15,12 @@
     @include tile;
   }
 
+  &.node--view-mode-basic-listing {
+    h2 {
+      margin: 0 0 .25em;
+    }
+  }
+
   .gallery__top {
     @include top-block;
   }  
