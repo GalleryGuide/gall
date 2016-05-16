@@ -316,9 +316,8 @@ function gall_preprocess_views_view_unformatted(&$variables) {
   if (in_array($view_id, $tiles_views)) {
     // Add dummy rows so that flexbox looks nice.
     $remainder = count($variables['view']->result) % GALL_VIEWS_ITEMS_PER_ROW;
-
     $rows_to_add = GALL_VIEWS_ITEMS_PER_ROW - $remainder;
-    if ($rows_to_add) {
+    if ($remainder && $rows_to_add) {
       $variables['extra_rows'] = $rows_to_add;
     }
   }
