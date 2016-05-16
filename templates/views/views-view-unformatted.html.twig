@@ -32,6 +32,13 @@
     {{ row.content }}
   </div>
 {% endfor %}
+
+{% if extra_rows %}
+  {% for i in 1..extra_rows %}
+    <div class="views-row dummy-row"></div>
+  {% endfor %}
+{% endif %}
+
 {% if title %}
     </div>
   </div>
