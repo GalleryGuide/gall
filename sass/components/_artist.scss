@@ -6,3 +6,9 @@
     @include tile;
   }
 }
+
+.field--name-field-born,
+.field--name-field-died {
+  display: inline-block;
+  width: 8em;
+}
