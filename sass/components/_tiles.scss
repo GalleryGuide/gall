@@ -38,7 +38,7 @@
     .views-field {
       @include element-invisible;
 
-      margin: 1.5em 0;
+      margin: 1em 0;
       padding: 0 1em;
     }
   }
@@ -72,7 +72,8 @@
 /// A set of tiles.
 
 @mixin tiles {
-  .view-content {
+  .view-content,
+  .view-grouping {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
