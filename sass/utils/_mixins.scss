@@ -216,6 +216,10 @@
     @include block-dark;
     flex: 1;
 
+    &:nth-child(2) {
+      margin-top: 1em;
+    }
+
     @include breakpoint($tablet-down) {
       max-width: 49%;
     }
