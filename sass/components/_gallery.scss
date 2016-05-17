@@ -74,7 +74,7 @@
 }
 
 .field__label {
-  margin-bottom: .25em;
+  margin-bottom: .125em;
 }
 
 .address {
@@ -89,6 +89,13 @@
 .office-hours-display-label {
   display: inline-block;
   width: 7em;
+}
+
+.field--name-field-facilities {
+  .field__item {
+    display: inline-block;
+    margin-right: .25em;
+  }
 }
 
 .field--name-field-website a {
