@@ -295,16 +295,6 @@ function gall_views_pre_render($view) {
 }
 
 /**
- * Implements template_preprocess_views_view.
- */
-function gall_preprocess_views_view(&$variables) {
-  // If there are fewer than 4 items, the gap is too big.
-  if (count($variables['view']->result) < GALL_VIEWS_ITEMS_PER_ROW) {
-    $variables['attributes']['class'][] = 'views__result__small';
-  }
-}
-
-/**
  * Implements template_preprocess_views_view_unformatted().
  */
 function gall_preprocess_views_view_unformatted(&$variables) {

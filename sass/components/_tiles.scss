@@ -83,20 +83,14 @@
     }
   }
 
-  // If there are fewer than 4 items, the gap is too big.
-  &.views__result__small .view-content {
-    @include breakpoint($tablet) {
-      justify-content: flex-start;
-
-      .views-row {
-        margin-right: 2em;
-      }
-    }
-  }
-
   .views-row {
     @include tile;
     margin-bottom: 2em;
+  }
+
+  .dummy-row {
+    @include tile;
+    height: 0 !important;
   }
 }
 
