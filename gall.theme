@@ -94,13 +94,29 @@ function gall_preprocess_block(&$variables) {
     'views_block:exhibitions_this_gallery-current',
     'views_block:exhibitions_this_gallery-upcoming',
     'views_block:exhibitions_this_gallery-past',
+//    'views_block:exhibitions_this_artist-current',
+//    'views_block:exhibitions_this_artist-upcoming',
+//    'views_block:exhibitions_this_artist-past',
+//    'views_block:galleries_this_artist-current',
   );
   if (in_array($variables['plugin_id'], $link_title_blocks)) {
     $display = $variables['content']['#view']->current_display;
-    $title = $variables['content']['#view']->build_info['substitutions']['{{ arguments.nid }}'];
+
+    $argument = $variables['content']['#view']->build_info['substitutions'];
+
+    if (!empty($argument['{{ arguments.nid }}'])) {
+      $title = $argument['{{ arguments.nid }}'];
+    }
+    elseif (!empty($argument['{{ arguments.tid }}'])) {
+      $title = $argument['{{ arguments.tid }}'];
+    }
+
     $url = _gall_view_block_page_url($variables['plugin_id'], $title, $display);
-    $link = Link::fromTextAndUrl($variables['label']['#markup'], $url);
-    $variables['label'] = $link->toRenderable();
+
+    if (!empty($url)) {
+      $link = Link::fromTextAndUrl($variables['label']['#markup'], $url);
+      $variables['label'] = $link->toRenderable();
+    }
   }
 }
 
@@ -113,8 +129,16 @@ function _gall_view_block_page_url($plugin_id, $title = '', $display = '') {
     case 'views_block:exhibitions_this_gallery-current':
     case 'views_block:exhibitions_this_gallery-upcoming':
     case 'views_block:exhibitions_this_gallery-past':
+    case 'views_block:exhibitions_this_artist-current':
+    case 'views_block:exhibitions_this_artist-upcoming':
+    case 'views_block:exhibitions_this_artist-past':
       $url = '/exhibitions/' . $display . '/' . $argument;
       break;
+
+    case 'views_block:galleries_this_artist-current':
+      $url = '/galleries/' . $display . '/' . $argument;
+      break;
+
   }
 
   $url_object = Url::fromUserInput($url);
@@ -126,9 +150,13 @@ function _gall_view_block_page_url($plugin_id, $title = '', $display = '') {
 * Implements hook_theme_suggestions_field_alter().
 */
 function gall_theme_suggestions_field_alter(array &$suggestions, array $variables) {
-  /*$element = $variables['element'];
+  $element = $variables['element'];
   $suggestions[] = 'field__' . $element['#view_mode'];
-  $suggestions[] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'];*/
+  $suggestions[] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'];
+
+  if ($element['#field_name'] == 'field_image') {
+    $suggestions[] = 'field__' . 'field_images';
+  }
 }
 
 /**

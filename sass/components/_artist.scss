@@ -7,6 +7,21 @@
   }
 }
 
+.taxonomy-term.vocabulary-artists {
+  .content {
+    @include top-block;
+  }
+
+  .field--name-field-image {
+    @include image-main;
+  }
+}
+
+.artist__bio {
+  flex-basis: 30em;
+  order: 3;
+}
+
 .field--name-field-born,
 .field--name-field-died {
   display: inline-block;
