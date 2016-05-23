@@ -38,6 +38,10 @@
   .field--name-field-images {
     @include image-main;
   }
+
+  .address .country {
+    display: none;
+  }
 }
 
 .gallery__tags {
