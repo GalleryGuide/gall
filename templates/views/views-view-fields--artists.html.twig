@@ -29,14 +29,14 @@
  * @see template_preprocess_views_view_fields()
  */
 #}
-{% set separate_fields = ['field_images', 'title', 'path'] %}
+{% set separate_fields = ['field_image', 'name', 'path'] %}
 
-<a href="{{ fields.path.content }}" class="tiles-view-tile">
+<a href="{{ term_path }}" class="tiles-view-tile">
 
-  {{ fields.field_images.content }}
+  {{ fields.field_image.content }}
   
   <div class="overlay-text">
-    <h2>{{ fields.title.content }}</h2>
+    <h2>{{ fields.name.content }}</h2>
     {% for delta, field in fields -%}
       {%- if delta not in separate_fields -%}
         {{ field.separator }}

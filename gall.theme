@@ -167,24 +167,46 @@ function gall_theme_suggestions_alter(array &$suggestions, array $variables, $ho
 }
 
 /**
- * Implements hook_theme_suggestions_views_view_fields_alter().
+ * Implements template_preprocess_views_view_fields().
  */
-function gall_theme_suggestions_views_view_fields_alter(array &$suggestions, array $variables) {
-  // Set up views to use the tiles template.
-  $tiles_views = _gall_tiles_views();
+function gall_preprocess_views_view_fields(&$variables) {
+
+  $term_views = _gall_tiles_term_views();
   $view_id = $variables['view']->id();
-  if (in_array($view_id, $tiles_views)) {
-    $suggestions[] = 'views_view_fields__tiles';
+
+  if (in_array($view_id, $term_views)) {
+    $term_id = $variables['row']->_entity->id();
+    $variables['term_path'] = Url::fromRoute('entity.taxonomy_term.canonical', array(
+      'taxonomy_term' => $term_id,
+    ));
   }
 }
 
 /**
- * Get a list of views that should follow the tiles pattern.
+ * Implements hook_theme_suggestions_views_view_fields_alter().
+ */
+function gall_theme_suggestions_views_view_fields_alter(array &$suggestions, array $variables) {
+  // Set up views to use the tiles template.
+  $view_id = $variables['view']->id();
+
+  $tiles_views = _gall_tiles_node_views();
+  if (in_array($view_id, $tiles_views)) {
+    $suggestions[] = 'views_view_fields__tiles';
+  }
+
+  $term_views = _gall_tiles_term_views();
+  if (in_array($view_id, $term_views)) {
+    $suggestions[] = 'views_view_fields__artists';
+  }
+}
+
+/**
+ * Get a list of node views that should follow the tiles pattern.
  *
  * @return array
  *   A list of view IDs to which the tiles styles should apply.
  */
-function _gall_tiles_views() {
+function _gall_tiles_node_views() {
   return array(
     'exhibitions',
     'exhibitions_a_z',
@@ -195,6 +217,19 @@ function _gall_tiles_views() {
     'galleries_new',
     'galleries_this_artist',
     'galleries_by_tag',
+  );
+}
+
+/**
+ * Get a list of term views that should follow the tiles pattern.
+ *
+ * @return array
+ *   List of view IDs.
+ */
+function _gall_tiles_term_views() {
+  return array(
+    'artists',
+    'artists_new',
   );
 }
 
@@ -329,7 +364,7 @@ function gall_preprocess_views_view_unformatted(&$variables) {
   $view = $variables['view'];
   $view_id = $view->id();
 
-  $tiles_views = _gall_tiles_views();
+  $tiles_views = array_merge(_gall_tiles_node_views(), _gall_tiles_term_views());
   if (in_array($view_id, $tiles_views)) {
     // Add dummy rows so that flexbox looks nice.
     $remainder = count($variables['view']->result) % GALL_VIEWS_ITEMS_PER_ROW;
