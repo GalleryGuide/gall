@@ -28,58 +28,58 @@ function gall_preprocess_html(&$variables) {
 }
 
 /**
-* Implements hook_page_attachments_alter
-*/
+ * Implements hook_page_attachments_alter
+ */
 function gall_page_attachments_alter(array &$page) {
-    // Disabling browser zoom on mobile devices.
-    /*foreach ($page['#attached']['html_head'] as &$meta_arr) {
-        if (array_search('viewport', $meta_arr)) {
-          $meta_arr[0]['#attributes']['content'] .= ', maximum-scale=1.0, user-scalable=0';
-        }
-    }*/
+  // Disabling browser zoom on mobile devices.
+  /*foreach ($page['#attached']['html_head'] as &$meta_arr) {
+      if (array_search('viewport', $meta_arr)) {
+        $meta_arr[0]['#attributes']['content'] .= ', maximum-scale=1.0, user-scalable=0';
+      }
+  }*/
 
 
-    // Tell IE to use latest rendering engine (not to use compatibility mode).
-    /*$ie_edge = array(
-        '#type' => 'html_tag',
-        '#tag' => 'meta',
-        '#attributes' => array(
-        'http-equiv' => 'X-UA-Compatible',
-        'content' => 'IE=edge',
-        ),
-    );
-    $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];*/
+  // Tell IE to use latest rendering engine (not to use compatibility mode).
+  /*$ie_edge = array(
+      '#type' => 'html_tag',
+      '#tag' => 'meta',
+      '#attributes' => array(
+      'http-equiv' => 'X-UA-Compatible',
+      'content' => 'IE=edge',
+      ),
+  );
+  $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];*/
 }
 
 /**
-* Implements hook_preprocess_page() for PAGE document templates.
-*/
+ * Implements hook_preprocess_page() for PAGE document templates.
+ */
 function gall_preprocess_page(&$variables) {
-  $svg = file_get_contents(drupal_get_path('theme', 'gall') . '/images/icons.svg');   
+  $svg = file_get_contents(drupal_get_path('theme', 'gall') . '/images/icons.svg');
   $variables['svg_icons'] = t('svg', array('svg' => $svg));
 }
 
 /**
-* Implements hook_theme_suggestions_page_alter().
-*/
+ * Implements hook_theme_suggestions_page_alter().
+ */
 function gall_theme_suggestions_page_alter(array &$suggestions, array $variables) {
 
 }
 
 /**
-* Implements hook_theme_suggestions_node_alter().
-*/
+ * Implements hook_theme_suggestions_node_alter().
+ */
 function gall_theme_suggestions_node_alter(array &$suggestions, array $variables) {
-    /*$node = $variables['elements']['#node'];
+  /*$node = $variables['elements']['#node'];
 
-    if ($variables['elements']['#view_mode'] == "full") {
+  if ($variables['elements']['#view_mode'] == "full") {
 
-    }*/
+  }*/
 }
 
 /**
-* Implements hook_preprocess_HOOK() for Block document templates.
-*/
+ * Implements hook_preprocess_HOOK() for Block document templates.
+ */
 function gall_preprocess_block(&$variables) {
   if ($variables['attributes']['id'] == 'block-gall-branding') {
     // Use the PNG logo.
@@ -91,6 +91,8 @@ function gall_preprocess_block(&$variables) {
 
   // Link block titles to their view pages.
   $link_title_blocks = array(
+    'views_block:exhibitions_new-block_1',
+    'views_block:galleries_new-block_1',
     'views_block:exhibitions_this_gallery-current',
     'views_block:exhibitions_this_gallery-upcoming',
     'views_block:exhibitions_this_gallery-past',
@@ -99,6 +101,7 @@ function gall_preprocess_block(&$variables) {
 //    'views_block:exhibitions_this_artist-past',
 //    'views_block:galleries_this_artist-current',
   );
+
   if (in_array($variables['plugin_id'], $link_title_blocks)) {
     $display = $variables['content']['#view']->current_display;
 
@@ -139,6 +142,14 @@ function _gall_view_block_page_url($plugin_id, $title = '', $display = '') {
       $url = '/galleries/' . $display . '/' . $argument;
       break;
 
+    case 'views_block:exhibitions_new-block_1':
+      $url = '/exhibitions/new';
+      break;
+
+    case 'views_block:galleries_new-block_1':
+      $url = '/galleries/new';
+      break;
+
   }
 
   $url_object = Url::fromUserInput($url);
@@ -147,8 +158,8 @@ function _gall_view_block_page_url($plugin_id, $title = '', $display = '') {
 }
 
 /**
-* Implements hook_theme_suggestions_field_alter().
-*/
+ * Implements hook_theme_suggestions_field_alter().
+ */
 function gall_theme_suggestions_field_alter(array &$suggestions, array $variables) {
   $element = $variables['element'];
   $suggestions[] = 'field__' . $element['#view_mode'];
@@ -234,18 +245,18 @@ function _gall_tiles_term_views() {
 }
 
 /**
-* Implements hook_theme_suggestions_field_alter().
-*/
+ * Implements hook_theme_suggestions_field_alter().
+ */
 function gall_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
-    /*$element = $variables['element'];
-    if (isset($element['#attributes']['class']) && in_array('form-composite', $element['#attributes']['class'])) {
-    $suggestions[] = 'fieldset__form_composite';
-    }*/
+  /*$element = $variables['element'];
+  if (isset($element['#attributes']['class']) && in_array('form-composite', $element['#attributes']['class'])) {
+  $suggestions[] = 'fieldset__form_composite';
+  }*/
 }
 
 /**
-* Implements hook_preprocess_node().
-*/
+ * Implements hook_preprocess_node().
+ */
 function gall_preprocess_node(&$variables) {
   // Set up node type specific preprocess functions.
   $node_type = $variables['node']->bundle();
@@ -294,54 +305,54 @@ function _gall_format_admission(&$variables) {
 }
 
 /**
-* Implements hook_theme_suggestions_views_view_alter().
-*/
+ * Implements hook_theme_suggestions_views_view_alter().
+ */
 function gall_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
 
 }
 
 /**
-* Implements hook_preprocess_form().
-*/
+ * Implements hook_preprocess_form().
+ */
 function gall_preprocess_form(&$variables) {
-    //$variables['attributes']['novalidate'] = 'novalidate';
+  //$variables['attributes']['novalidate'] = 'novalidate';
 }
 
 /**
-* Implements hook_preprocess_select().
-*/
+ * Implements hook_preprocess_select().
+ */
 function gall_preprocess_select(&$variables) {
-    //$variables['attributes']['class'][] = 'select-chosen';
+  //$variables['attributes']['class'][] = 'select-chosen';
 }
 
 /**
-* Implements hook_preprocess_field().
-*/
+ * Implements hook_preprocess_field().
+ */
 function gall_preprocess_field(&$variables, $hook) {
-    /*switch ($variables['element']['#field_name']) {
-    }*/
+  /*switch ($variables['element']['#field_name']) {
+  }*/
 }
 
 /**
-* Implements hook_preprocess_details().
-*/
+ * Implements hook_preprocess_details().
+ */
 function gall_preprocess_details(&$variables) {
-    /*$variables['attributes']['class'][] = 'details';
-    $variables['summary_attributes']['class'] = 'summary';*/
+  /*$variables['attributes']['class'][] = 'details';
+  $variables['summary_attributes']['class'] = 'summary';*/
 }
 
 /**
-* Implements hook_theme_suggestions_details_alter().
-*/
+ * Implements hook_theme_suggestions_details_alter().
+ */
 function gall_theme_suggestions_details_alter(array &$suggestions, array $variables) {
 
 }
 
 /**
-* Implements hook_preprocess_menu_local_task().
-*/
+ * Implements hook_preprocess_menu_local_task().
+ */
 function gall_preprocess_menu_local_task(&$variables) {
-    //$variables['element']['#link']['url']->setOption('attributes', array('class'=>'rounded'));
+  //$variables['element']['#link']['url']->setOption('attributes', array('class'=>'rounded'));
 }
 
 /**
@@ -350,7 +361,7 @@ function gall_preprocess_menu_local_task(&$variables) {
 function gall_views_pre_render($view) {
   // Limit the distance to 2 decimal places.
   if ($view->element['#name'] == 'galleries_nearby') {
-    foreach($view->result as $row) {
+    foreach ($view->result as $row) {
       $row->node__field_location_field_location_proximity1 = number_format($row->node__field_location_field_location_proximity1, 2);
     }
   }
