@@ -96,14 +96,16 @@ function gall_preprocess_block(&$variables) {
     'views_block:exhibitions_this_gallery-current',
     'views_block:exhibitions_this_gallery-upcoming',
     'views_block:exhibitions_this_gallery-past',
-//    'views_block:exhibitions_this_artist-current',
-//    'views_block:exhibitions_this_artist-upcoming',
-//    'views_block:exhibitions_this_artist-past',
+    'views_block:exhibitions_this_artist-current',
+    'views_block:exhibitions_this_artist-upcoming',
+    'views_block:exhibitions_this_artist-past',
 //    'views_block:galleries_this_artist-current',
   );
 
   if (in_array($variables['plugin_id'], $link_title_blocks)) {
     $display = $variables['content']['#view']->current_display;
+
+    $title = '';
 
     if (!empty($variables['content']['#view']->build_info['substitutions'])) {
       $argument = $variables['content']['#view']->build_info['substitutions'];
@@ -114,18 +116,18 @@ function gall_preprocess_block(&$variables) {
       elseif (!empty($argument['{{ arguments.tid }}'])) {
         $title = $argument['{{ arguments.tid }}'];
       }
+    }
 
-      $url = _gall_view_block_page_url($variables['plugin_id'], $title, $display);
+    $url = _gall_view_block_page_url($variables['plugin_id'], $display, $title);
 
-      if (!empty($url)) {
-        $link = Link::fromTextAndUrl($variables['label']['#markup'], $url);
-        $variables['label'] = $link->toRenderable();
-      }
+    if (!empty($url)) {
+      $link = Link::fromTextAndUrl($variables['label']['#markup'], $url);
+      $variables['label'] = $link->toRenderable();
     }
   }
 }
 
-function _gall_view_block_page_url($plugin_id, $title = '', $display = '') {
+function _gall_view_block_page_url($plugin_id, $display = '', $title = '') {
   $url = '';
   $argument = strtolower(Html::cleanCssIdentifier($title));
 
@@ -134,10 +136,13 @@ function _gall_view_block_page_url($plugin_id, $title = '', $display = '') {
     case 'views_block:exhibitions_this_gallery-current':
     case 'views_block:exhibitions_this_gallery-upcoming':
     case 'views_block:exhibitions_this_gallery-past':
+      $url = '/exhibitions/' . $display . '/' . $argument;
+      break;
+
     case 'views_block:exhibitions_this_artist-current':
     case 'views_block:exhibitions_this_artist-upcoming':
     case 'views_block:exhibitions_this_artist-past':
-      $url = '/exhibitions/' . $display . '/' . $argument;
+      $url = '/exhibitions/artist/' . $argument . '/' . $display;
       break;
 
     case 'views_block:galleries_this_artist-current':
