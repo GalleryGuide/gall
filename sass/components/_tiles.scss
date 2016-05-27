@@ -1,25 +1,59 @@
+$tile-tiny: 7.75em;
+$tile-smaller: 8.75em;
+$tile-small: 9.75em;
+$tile-medium: 11.75em;
+$tile-large: 13.75em;
 
 /// A square block with a translucent heading over it.
 
 @mixin tile {
   display: block;
   position: relative;
-  width: 11.75em;
-  height: 11.75em;
+  width: $tile-smaller;
+  height: $tile-smaller;
   overflow: hidden;
+  font-size: 0.9em;
 
-  @include breakpoint(680px 800px) {
-    width: 9.75em;
-    height: 9.75em;
+  @include breakpoint($mobile-small) {
+    width: $tile-small;
+    height: $tile-small;
+  }
+
+  @include breakpoint($phablet) {
+    width: $tile-smaller;
+    height: $tile-smaller;
+
+    .overlay-text {
+      font-size: 0.7em;
+    }
+  }
+
+  @include breakpoint(620px) {
+    width: $tile-smaller;
+    height: $tile-smaller;
 
     .overlay-text {
       font-size: 0.9em;
     }
   }
 
+  @include breakpoint($tablet) {
+    width: $tile-small;
+    height: $tile-small;
+  }
+
+  @include breakpoint($laptop) {
+    width: $tile-medium;
+    height: $tile-medium;
+  }
+
   @include breakpoint($desktop) {
-    width: 13.75em;
-    height: 13.75em;
+    width: $tile-large;
+    height: $tile-large;
+
+    .overlay-text {
+      font-size: 1em;
+    }
   }
 
   .overlay-text {
