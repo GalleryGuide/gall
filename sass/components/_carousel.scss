@@ -68,18 +68,18 @@
       $slide_end: round($slide_start + $still_time);
 
       // Move everything one image width left for each slide. 
-      $left_offset: 0 - ($j * 100);
+      $left_offset: 0 - $j;
 
       @if ($slide_start <= 100) {
         #{$slide_start}% {
-          left: #{$left_offset}%;
+          left: percentage($left_offset);
         }
       }
 
       @if ($slide_end < 100) {
         #{$slide_end}% {
-          left: #{$left_offset}%;
-        }        
+          left: percentage($left_offset);
+        }
       }
     }
   }
