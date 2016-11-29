@@ -56,7 +56,7 @@ function gall_page_attachments_alter(array &$page) {
  */
 function gall_preprocess_page(&$variables) {
   $svg = file_get_contents(drupal_get_path('theme', 'gall') . '/images/icons.svg');
-  $variables['svg_icons'] = t('svg', array('svg' => $svg));
+  $variables['svg_icons'] = $svg;
 }
 
 /**
