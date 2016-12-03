@@ -288,6 +288,15 @@ function gall_preprocess_node(&$variables) {
  * Specific preprocess function for gallery nodes.
  */
 function gall_preprocess_node_gallery(&$variables) {
+  // If there's no body, add a placeholder.
+  $body = $variables['node']->get('body')->getValue();
+  if (empty($body)) {
+    $variables['content']['body'] = array(
+      '#theme' => 'markup',
+      '#markup' => '<p>&nbsp;</p>',
+    );
+  }
+
   // Hide opening times if empty.
   $opening_times = $variables['node']->get('field_openingtimes')->getValue();
   if (empty($opening_times)) {
