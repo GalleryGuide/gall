@@ -108,16 +108,17 @@
     </div>
 
     <div class="gallery__body">
-      {{ content.body }}
-      {{ content.field_rating }}
+     {{ content.body }}
+
       <div class="gallery__map">
+        {{ content.field_rating }}
         {{ content.field_location }}
       </div>
     </div>
 
     <div class="gallery__links">
       {% if logged_in %}
-        <a href="/node/add/exhibition?edit?edit[field_gallery]={{ node.id }}">{{ 'Add a new exhibition at this gallery'|t }}</a>
+        <a href="/node/add/exhibition?edit[field_exhib_gallery]={{ node.id }}">{{ 'Add a new exhibition at this gallery'|t }}</a>
         <a href="/node/{{ node.id }}/edit">{{ 'Edit this gallery'|t }}</a>
       {% else %}
         <a href="/user?destination=node/{{ node.id }}">{{ 'Log in or register to edit this gallery'|t }}</a>
