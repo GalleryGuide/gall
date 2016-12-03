@@ -105,24 +105,28 @@ function gall_preprocess_block(&$variables) {
   if (in_array($variables['plugin_id'], $link_title_blocks)) {
     $display = $variables['content']['#view']->current_display;
 
-    $title = '';
+    // If the view has any results, link the block to the view page.
+    if (!empty($variables['content']['#view']->result)) {
 
-    if (!empty($variables['content']['#view']->build_info['substitutions'])) {
-      $argument = $variables['content']['#view']->build_info['substitutions'];
+      $title = '';
 
-      if (!empty($argument['{{ arguments.nid }}'])) {
-        $title = $argument['{{ arguments.nid }}'];
+      if (!empty($variables['content']['#view']->build_info['substitutions'])) {
+        $argument = $variables['content']['#view']->build_info['substitutions'];
+
+        if (!empty($argument['{{ arguments.nid }}'])) {
+          $title = $argument['{{ arguments.nid }}'];
+        }
+        elseif (!empty($argument['{{ arguments.tid }}'])) {
+          $title = $argument['{{ arguments.tid }}'];
+        }
       }
-      elseif (!empty($argument['{{ arguments.tid }}'])) {
-        $title = $argument['{{ arguments.tid }}'];
+
+      $url = _gall_view_block_page_url($variables['plugin_id'], $display, $title);
+
+      if (!empty($url)) {
+        $link = Link::fromTextAndUrl($variables['label']['#markup'], $url);
+        $variables['label'] = $link->toRenderable();
       }
-    }
-
-    $url = _gall_view_block_page_url($variables['plugin_id'], $display, $title);
-
-    if (!empty($url)) {
-      $link = Link::fromTextAndUrl($variables['label']['#markup'], $url);
-      $variables['label'] = $link->toRenderable();
     }
   }
 }
