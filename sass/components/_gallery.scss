@@ -24,8 +24,8 @@
 
   .gallery__top {
     @include top-block;
-  }  
-  
+  }
+
   .gallery__details {
     @include details-block;
     order: 2;
@@ -34,7 +34,7 @@
       order: 1;
     }
   }
-  
+
   .field--name-field-images {
     @include image-main;
   }
@@ -93,7 +93,7 @@
 
 .office-hours-display-label {
   display: inline-block;
-  width: 7em;
+  width: 6.5em;
 }
 
 .field--name-field-facilities {
