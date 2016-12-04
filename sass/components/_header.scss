@@ -10,8 +10,8 @@ header {
 
 .block-system-branding-block {
   float: left;
-  width: 14em;
-  
+  width: 12em;
+
   @include breakpoint($tablet) {
     width: auto;
   }
@@ -19,8 +19,12 @@ header {
 
 .social-links {
   float: right;
-  padding: .5em 0 0;
-  font-size: 2em;
+  font-size: 1.5em;
+
+  @include breakpoint($tablet) {
+    padding: .5em 0 0;
+    font-size: 2em;
+  }
 
   a {
     @include hover-red-box;
@@ -33,7 +37,7 @@ header {
 
 .menu--account {
   float: left;
-  
+
   @include breakpoint($laptop) {
     position: absolute;
     top: 7em;
