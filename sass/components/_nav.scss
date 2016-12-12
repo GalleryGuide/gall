@@ -16,6 +16,7 @@
     padding: .25em;
   }
 
+  // Second level menu.
   .menu {
     position: absolute;
     top: 1.6em;
@@ -41,6 +42,20 @@
       z-index: 2;
     }
   }
+
+  @include breakpoint($mobile-only) {
+    .menu {
+      min-height: 5em;
+    }
+    
+    .menu-item {
+    
+      width: 49%;
+      padding: .25em;
+    }
+  }
+  
+  
 }
 
 .menu--primary-links {
