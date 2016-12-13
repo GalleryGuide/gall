@@ -195,6 +195,7 @@
   }
 
   @include breakpoint($tablet-down) {
+    flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
