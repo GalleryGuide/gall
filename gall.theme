@@ -293,8 +293,20 @@ function gall_preprocess_node_gallery(&$variables) {
   if (empty($body)) {
     $variables['content']['body'] = array(
       '#theme' => 'markup',
-      '#markup' => '<p>&nbsp;</p>',
+      '#markup' => "<p>This gallery doesn't currently have any info.</p>",
     );
+  }
+
+  // If there are no artists, add a placeholder.
+  $artists = $variables['node']->get('artists')->getValue();
+  if (empty($artists)) {
+    $variables['content']['artists'] = _gall_tags_placeholder('Artists');
+  }
+
+  // If there are no tags, add a placeholder.
+  $tags = $variables['node']->get('tags')->getValue();
+  if (empty($tags)) {
+    $variables['content']['tags'] = _gall_tags_placeholder('Tags');
   }
 
   // Hide opening times if empty.
@@ -302,6 +314,24 @@ function gall_preprocess_node_gallery(&$variables) {
   if (empty($opening_times)) {
     unset($variables['content']['field_openingtimes']);
   }
+}
+
+/**
+ * Prepare placeholder text for a tags block. 
+ * 
+ * @param string $title
+ *   The title of the tags block.
+ * 
+ * @return array
+ *   Render array of markup.
+ */
+function _gall_tags_placeholder($title) {
+  $body = 'There are no ' . strtolower($title) . ' currently listed - why not add some?';
+  
+  return array(
+    '#theme' => 'markup',
+    '#markup' => '<div class="field"><div class="field__label">' . $title . '</div><div class="field__items">' . $body . '</div></div>',
+  );
 }
 
 /**
