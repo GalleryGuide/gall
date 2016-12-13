@@ -63,7 +63,7 @@ $tile-large: 13.75em;
     bottom: 0;
     width: 100%;
     margin: 0;
-    padding: .25em;
+    padding: .125em;
     background: $grey-translucent;
     color: $white;
     text-align: center;
@@ -83,8 +83,12 @@ $tile-large: 13.75em;
     margin: 0;
     padding: 0;
     font-weight: normal;
-    font-size: 1.1em;
+    font-size: .9em;
     overflow: hidden;
+    
+    @include breakpoint($phablet) {
+      font-size: 1.1em;
+    }
   }
 
   &:hover,
