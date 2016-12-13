@@ -288,35 +288,37 @@ function gall_preprocess_node(&$variables) {
  * Specific preprocess function for gallery nodes.
  */
 function gall_preprocess_node_gallery(&$variables) {
-  // If there's no body, add a placeholder.
-  $body = $variables['node']->get('body')->getValue();
-  if (empty($body)) {
-    $edit_link_object = Link::createFromRoute('edit the listing', 'entity.node.edit_form', array('node' => $variables['node']->id()));
-    $edit_link = $edit_link_object->toString();
+  if ($variables['view_mode'] == 'full') {
+    // If there's no body, add a placeholder.
+    $body = $variables['node']->get('body')->getValue();
+    if (empty($body)) {
+      $edit_link_object = Link::createFromRoute('edit the listing', 'entity.node.edit_form', array('node' => $variables['node']->id()));
+      $edit_link = $edit_link_object->toString();
 
-    $variables['content']['body'] = array(
-      '#theme' => 'markup',
-      '#markup' => "<div class='field--name-body'><p>We don't currently have a description for this gallery.</p>" .
-    "<p>Please " . $edit_link . " to add more information.</p></div>",
-    );
-  }
+      $variables['content']['body'] = array(
+        '#theme' => 'markup',
+        '#markup' => "<div class='field--name-body'><p>We don't currently have a description for this gallery.</p>" .
+          "<p>Please " . $edit_link . " to add more information.</p></div>",
+      );
+    }
 
-  // If there are no artists, add a placeholder.
-  $artists = $variables['node']->get('artists')->getValue();
-  if (empty($artists)) {
-    $variables['content']['artists'] = _gall_tags_placeholder('Artists');
-  }
+    // If there are no artists, add a placeholder.
+    $artists = $variables['node']->get('artists')->getValue();
+    if (empty($artists)) {
+      $variables['content']['artists'] = _gall_tags_placeholder('Artists');
+    }
 
-  // If there are no tags, add a placeholder.
-  $tags = $variables['node']->get('tags')->getValue();
-  if (empty($tags)) {
-    $variables['content']['tags'] = _gall_tags_placeholder('Tags');
-  }
+    // If there are no tags, add a placeholder.
+    $tags = $variables['node']->get('tags')->getValue();
+    if (empty($tags)) {
+      $variables['content']['tags'] = _gall_tags_placeholder('Tags');
+    }
 
-  // Hide opening times if empty.
-  $opening_times = $variables['node']->get('field_openingtimes')->getValue();
-  if (empty($opening_times)) {
-    unset($variables['content']['field_openingtimes']);
+    // Hide opening times if empty.
+    $opening_times = $variables['node']->get('field_openingtimes')->getValue();
+    if (empty($opening_times)) {
+      unset($variables['content']['field_openingtimes']);
+    }
   }
 }
 
@@ -429,6 +431,7 @@ function gall_preprocess_views_view_unformatted(&$variables) {
   $view = $variables['view'];
   $view_id = $view->id();
 
+  // Sort out tiles views.
   $tiles_views = array_merge(_gall_tiles_node_views(), _gall_tiles_term_views());
   if (in_array($view_id, $tiles_views)) {
     // Add dummy rows so that flexbox looks nice.
