@@ -5,6 +5,28 @@
   @include tiles;
 }
 
+.view-header .view-gallery-single {
+  .views-row {
+    @include details-block;
+    
+    width: auto;
+    height: auto;
+
+    h2 {
+      height: auto;
+      margin-top: 0;
+      font-weight: bold;
+    }
+
+    &:hover,
+    &:focus {
+      h2 {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
 .attachment {
   .view-content {
     @include glossary;
@@ -77,7 +99,7 @@
 
   a {
     @include button;
-    
+
     @include breakpoint($tablet-down) {
       display: block;
       margin: 0 auto 1em;
