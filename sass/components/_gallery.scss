@@ -73,8 +73,15 @@
 }
 
 .gallery__links {
+  margin-top: .5em;
+
   a {
     @include button;
+    
+    @include breakpoint($tablet-down) {
+      display: block;
+      margin: 0 auto;
+    }
   }
 }
 
