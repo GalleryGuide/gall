@@ -80,7 +80,7 @@
     
     @include breakpoint($tablet-down) {
       display: block;
-      margin: 0 auto;
+      margin: 0 auto 1em;
     }
   }
 }
