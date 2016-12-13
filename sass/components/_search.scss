@@ -13,3 +13,19 @@
     box-shadow: none;
   }
 }
+
+.search-results {
+  padding: 0;
+  
+  li {
+    margin: 0 0 1.5em;
+  }
+  
+  h3 {
+    margin-bottom: 0;
+  }
+
+  .search-result__snippet {
+    margin-top: .25em;
+  }
+}
