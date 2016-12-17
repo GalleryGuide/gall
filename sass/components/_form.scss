@@ -18,3 +18,10 @@ label {
   @include button-primary;
   padding: 1.25em 2em;
 }
+
+// Specific form styles
+.user-pass {
+  label {
+    width: auto;
+  }
+}
