@@ -6,6 +6,12 @@
   .views-row {
     @include tile;
   }
+
+  .attachment {
+    .view-content {
+      @include glossary;
+    }
+  }
 }
 
 .taxonomy-term.vocabulary-artists {
