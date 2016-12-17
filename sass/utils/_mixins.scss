@@ -153,7 +153,7 @@
 ///
 /// Useful for links etc.
 
-@mixin button($background, $color) {
+@mixin button($background, $color, $hover-background) {
   display: inline-block;
   margin: 0 .5em .5em 0;
   padding: .5em;
@@ -164,17 +164,17 @@
 
   &:hover,
   &:focus {
-    background: $red-dark;
+    background: $hover-background;
     text-decoration: underline;
   }
 }
 
 @mixin button-primary {
-  @include button($red, $white);
+  @include button($red, $white, $red-dark);
 }
 
 @mixin button-secondary {
-  @include button($grey-lighter, $black);
+  @include button($grey-lighter, $black, $grey-light);
 }
 
 /// Top block
