@@ -153,12 +153,12 @@
 ///
 /// Useful for links etc.
 
-@mixin button {
+@mixin button($background, $color) {
   display: inline-block;
   margin: 0 .5em .5em 0;
   padding: .5em;
-  background: $red;
-  color: $white;
+  background: $background;
+  color: $color;
   border: 0;
   box-shadow: $shadow;
 
@@ -167,6 +167,14 @@
     background: $red-dark;
     text-decoration: underline;
   }
+}
+
+@mixin button-primary {
+  @include button($red, $white);
+}
+
+@mixin button-secondary {
+  @include button($grey-lighter, $black);
 }
 
 /// Top block

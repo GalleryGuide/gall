@@ -32,7 +32,7 @@
 
 .exhibition__links {
   a {
-    @include button;
+    @include button-primary;
   }
 }
 
