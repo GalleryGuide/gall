@@ -418,7 +418,9 @@ function gall_views_pre_render($view) {
   // Limit the distance to 2 decimal places.
   if ($view->element['#name'] == 'galleries_nearby') {
     foreach ($view->result as $row) {
-      $row->node__field_location_field_location_proximity1 = number_format($row->node__field_location_field_location_proximity1, 2);
+      if (!empty($row->node__field_location_field_location_proximity1)) {
+        $row->node__field_location_field_location_proximity1 = number_format($row->node__field_location_field_location_proximity1, 2);
+      }
     }
   }
 }
