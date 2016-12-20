@@ -385,8 +385,16 @@ function gall_preprocess_select(&$variables) {
  * Implements hook_preprocess_field().
  */
 function gall_preprocess_field(&$variables, $hook) {
-  /*switch ($variables['element']['#field_name']) {
-  }*/
+  switch ($variables['element']['#field_name']) {
+    case 'field_image':
+    case 'field_images':      
+      // If this is the default image, add a class.
+      $images = $variables['element']['#items']->referencedEntities();
+      if (empty($images)) {
+        $variables['attributes']['class'][] = 'image__default';
+      }
+      break;
+  }
 }
 
 /**

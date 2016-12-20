@@ -259,4 +259,10 @@
   @include breakpoint($laptop) {
     max-width: 30em;
   }
+  
+  &.image__default {
+    @include breakpoint($mobile-only) {
+      display: none;
+    }
+  }
 }
