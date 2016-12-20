@@ -27,6 +27,10 @@
 .artist__bio {
   flex-basis: 30em;
   order: 3;
+  
+  .field {
+    margin-bottom: 1em;
+  }
 
   .field--name-field-tags {
     @include block-dark;
