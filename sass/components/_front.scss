@@ -31,6 +31,12 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+
+      .views-field-field-address-postal-code,
+      .views-field-tags,
+      .views-field-artists {
+        display: none;
+      }
     }
     
     @include breakpoint($mobile) {
