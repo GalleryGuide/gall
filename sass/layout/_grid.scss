@@ -15,8 +15,11 @@
   
   @include breakpoint($laptop) {
     max-width: 64em;
-    padding: 0 1em;
   }  
+  
+  @include breakpoint($desktop) {
+    padding: 0 1em;
+  }
 }
 
 main {
