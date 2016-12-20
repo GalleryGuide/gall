@@ -9,8 +9,13 @@
   margin: 0 auto;
   padding: 0 1em;
   
+  @include breakpoint($tablet) {
+    padding: 0 2em;
+  }
+  
   @include breakpoint($laptop) {
     max-width: 64em;
+    padding: 0 1em;
   }  
 }
 
