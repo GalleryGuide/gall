@@ -235,6 +235,7 @@ function _gall_tiles_node_views() {
     'exhibitions_new',
     'exhibitions_this_gallery',
     'exhibitions_this_artist',
+    'exhibitions_this_artist_pages',
     'galleries_a_z',
     'galleries_new',
     'galleries_this_artist',
