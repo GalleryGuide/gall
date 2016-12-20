@@ -80,17 +80,19 @@
         {{ content.field_date_to }}
         {{ content.field_exhib_website }}
 
-        <div class="exhibition__admission field">
-          <div class="field__label">{{ 'Admission fees'|t }}</div>
-          {% if admission %}
-            <div class="field__item">
-              {{ admission }}
-            </div>
-          {% else %}
-            {{ content.field_admission_std }}
-            {{ content.field_admission_conc }}
-          {% endif %}
-        </div>
+        {% if admission or content.field_admission_std|render %}
+          <div class="exhibition__admission field">
+            <div class="field__label">{{ 'Admission fees'|t }}</div>
+            {% if admission %}
+              <div class="field__item">
+                {{ admission }}
+              </div>
+            {% else %}
+              {{ content.field_admission_std }}
+              {{ content.field_admission_conc }}
+            {% endif %}
+          </div>
+        {% endif %}
 
         {{ content.field_exhib_gallery }}
       </div>
