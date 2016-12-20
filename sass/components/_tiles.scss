@@ -3,6 +3,7 @@ $tile-smaller: 8.75em;
 $tile-small: 9.75em;
 $tile-medium: 11.75em;
 $tile-large: 13.75em;
+$tile-larger: 15.75em;
 
 /// A square block with a translucent heading over it.
 
@@ -43,8 +44,13 @@ $tile-large: 13.75em;
   }
 
   @include breakpoint($laptop) {
-    width: $tile-medium;
-    height: $tile-medium;
+    width: $tile-large;
+    height: $tile-large;
+
+    .front & {
+      width: $tile-larger;
+      height: $tile-larger;
+    }
   }
 
   @include breakpoint($desktop) {
