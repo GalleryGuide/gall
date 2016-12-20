@@ -44,10 +44,7 @@ $tile-larger: 15.75em;
   }
 
   @include breakpoint($laptop) {
-    width: $tile-large;
-    height: $tile-large;
-
-    .front & {
+    .block-views & {
       width: $tile-larger;
       height: $tile-larger;
     }
