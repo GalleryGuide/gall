@@ -233,6 +233,7 @@ function _gall_tiles_node_views() {
     'exhibitions',
     'exhibitions_a_z',
     'exhibitions_new',
+    'exhibitions_related',
     'exhibitions_this_gallery',
     'exhibitions_this_artist',
     'exhibitions_this_artist_pages',
