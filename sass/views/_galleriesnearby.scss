@@ -1,8 +1,15 @@
 .view-id-galleries_nearby {
   .views-row {
     display: inline-block;
-    width: 15em;
     margin-bottom: 1em;
+
+    @include breakpoint($tablet) {
+      width: 14em;
+    }
+
+    @include breakpoint($laptop) {
+      width: 15em;
+    }
     
     a {
       display: flex;
