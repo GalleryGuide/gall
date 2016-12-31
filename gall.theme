@@ -220,6 +220,8 @@ function gall_theme_suggestions_views_view_fields_alter(array &$suggestions, arr
   if (in_array($view_id, $term_views)) {
     $suggestions[] = 'views_view_fields__artists';
   }
+  
+  $suggestions[] = 'views_view_fields__' . $view_id;
 }
 
 /**
@@ -254,6 +256,7 @@ function _gall_tiles_term_views() {
   return array(
     'artists',
     'artists_new',
+    'tags',
   );
 }
 
@@ -298,7 +301,6 @@ function gall_preprocess_node_gallery(&$variables) {
       $edit_link = $edit_link_object->toString();
 
       $variables['content']['body'] = array(
-        '#theme' => 'markup',
         '#markup' => "<div class='field--name-body'><p>We don't currently have a description for this gallery.</p>" .
           "<p>Please " . $edit_link . " to add more information.</p></div>",
       );
@@ -337,7 +339,6 @@ function _gall_tags_placeholder($title) {
   $body = 'There are no ' . strtolower($title) . ' currently listed - why not add some?';
   
   return array(
-    '#theme' => 'markup',
     '#markup' => '<div class="field"><div class="field__label">' . $title . '</div><div class="field__items">' . $body . '</div></div>',
   );
 }
