@@ -218,7 +218,7 @@ function gall_theme_suggestions_views_view_fields_alter(array &$suggestions, arr
 
   $term_views = _gall_tiles_term_views();
   if (in_array($view_id, $term_views)) {
-    $suggestions[] = 'views_view_fields__artists';
+    $suggestions[] = 'views_view_fields__tags';
   }
   
   $suggestions[] = 'views_view_fields__' . $view_id;
