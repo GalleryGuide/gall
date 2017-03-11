@@ -116,7 +116,7 @@
     {% if logged_in %}
       <a href="/node/{{ node.id }}/edit">{{ 'Edit this exhibition'|t }}</a>
     {% else %}
-      <a href="/user?destination=node/{{ node.id }}">{{ 'Log in or register to edit this exhibition' }}</a>
+      <a href="/user/login?destination=node/{{ node.id }}">{{ 'Log in or register to edit this exhibition' }}</a>
     {% endif %}
   </div>
 
