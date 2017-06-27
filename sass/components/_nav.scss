@@ -19,11 +19,15 @@
   // Second level menu.
   .menu {
     position: absolute;
-    top: 1.6em;
+    top: 1.8em;
     left: -9999em;
     width: 100%;
     background: $red;
     z-index: 1;
+    
+    @include breakpoint($laptop) {
+      top: 1.6em;
+    }
   }
 
   &:hover,
