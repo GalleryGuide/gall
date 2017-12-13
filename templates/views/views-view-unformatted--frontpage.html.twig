@@ -32,4 +32,8 @@
       {{ row.content }}
     </div>
   {% endfor %}
+  {# add the first row again to avoid a jumping slideshow #}
+  <div class="views-row">
+    {{ rows[0].content }}
+  </div>
 </div>
