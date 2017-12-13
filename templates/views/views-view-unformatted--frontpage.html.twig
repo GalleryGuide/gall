@@ -20,7 +20,10 @@
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
-{% set view_classes = 'image-carousel carousel-' ~ rows|length %}
+{% set carousel_count = rows|length %}
+{% set carousel_class = carousel_count + 1 %}
+
+{% set view_classes = 'image-carousel carousel-' ~ carousel_class %}
 <div class="{{ view_classes }}">
   {% for row in rows %}
     {%
