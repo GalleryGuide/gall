@@ -67,7 +67,27 @@
       }).on('blur', function () {
         $(this).closest('.menu-item--expanded').removeClass('has-focus');
       });
+
+      $('.menu--primary-links .menu-item').hoverIntent({
+        over: menuHoverAdd,
+        out: menuHoverRemove,
+        timeout: 250
+      });
     }
   };
+
+  /**
+   * Helper function for adding menu class on hover.
+   */
+  function menuHoverAdd() {
+    $(this).addClass('has-focus');
+  }
+
+  /**
+   * Helper function for removing menu class on hover.
+   */
+  function menuHoverRemove() {
+    $(this).removeClass('has-focus');
+  }
 
 })(jQuery, Drupal);

@@ -4,6 +4,7 @@ global:
       css/gall.css: {}
   js:
     js/gall.js: {}
+    ../../modules/contrib/admin_toolbar/js/jquery.hoverIntent.js: {}
   dependencies:
     - core/drupal
     - core/jquery
