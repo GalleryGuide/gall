@@ -256,6 +256,7 @@ function _gall_tiles_term_views() {
   return array(
     'artists',
     'artists_new',
+    'artists_tag',
     'tags',
   );
 }
