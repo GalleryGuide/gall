@@ -24,7 +24,7 @@
 
 main {
   @include breakpoint($mobile-only) {
-    padding-top: 5em;
+    padding-top: 4em;
 
     .user-logged-in & {
       padding-top: 6.5em;
