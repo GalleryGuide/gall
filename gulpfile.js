@@ -1,16 +1,15 @@
-'use strict';
-
+const {src, dest, watch, series, parallel} = require('gulp');
 // Gulp requires.
-var gulp = require('gulp'),
+const
   $ = require('gulp-load-plugins')(),
   browserSync = require('browser-sync').create(),
   reload = browserSync.reload,
   spritesmith = require('gulp.spritesmith'),
   minimist = require('minimist'),
   arg = minimist(process.argv.slice(2)),
-  svgmin      = require('gulp-svgmin'),
-  svgstore    = require('gulp-svgstore'),
-  cheerio     = require('gulp-cheerio');
+  svgmin = require('gulp-svgmin'),
+  svgstore = require('gulp-svgstore'),
+  cheerio = require('gulp-cheerio');
 
 // Default environment options.
 var envOption = {
@@ -28,17 +27,16 @@ switch (arg.env) {
     break;
 }
 
-// BrowserSync.
-gulp.task('browsersync', function () {
+function watchTask() {
   browserSync.init({
     proxy: 'drupalvm.dev'
   });
-  gulp.watch('css/**/*.css').on('change', reload);
-  gulp.watch('templates/**/*.twig').on('change', reload);
-});
+  watch('css/**/*.css').on('change', reload);
+  watch('templates/**/*.twig').on('change', reload);
+}
 
-gulp.task('icons', function () {
-  return gulp.src('./src/icons/*')
+function icons() {
+  return src('./src/icons/*')
     .pipe(svgmin())
     .pipe(svgstore({ fileName: 'icons.svg', inlineSvg: true}))
     .pipe(cheerio({
@@ -48,55 +46,38 @@ gulp.task('icons', function () {
       },
       parserOptions: { xmlMode: true }
     }))
-    .pipe(gulp.dest('./images/'));
-});
+    .pipe(dest('./images/'));
+}
+
+function sassLint() {
+  return src('sass/**/*.scss')
+    .pipe($.cached($.scssLint))
+    .pipe($.scssLint({
+      'config': 'scss-lint.yml'
+    }));
+}
 
 // Use Node Sass (LibSass) to compile Sass.
-gulp.task('sass', function () {
-  gulp.src('sass/gall.scss')
+function sassCompile() {
+  return src('sass/gall.scss')
     .pipe($.if(envOption.sourcemap, $.sourcemaps.init()))
     .pipe($.sass())
     .pipe($.autoprefixer('last 2 versions', 'ie 8', 'ie 9'))
     // Optionally produce production CSS.
     .pipe($.if(envOption.sourcemap, $.sourcemaps.write('./')))
     .pipe($.if(envOption.minify, $.minifyCss()))
-    .pipe(gulp.dest('css'));
-});
+    .pipe(dest('css'));
+}
 
-// SCSS lint.
-gulp.task('scss-lint', function () {
-  gulp.src('sass/**/*.scss')
-    .pipe($.cached($.scssLint))
-    .pipe($.scssLint({
-      'config': 'scss-lint.yml'
-    }));
-});
+exports.icons = series(
+  icons
+);
 
-// Spritesmith.
-gulp.task('sprite', function() {
-  var spriteData = gulp.src('src/sprite/*.png')
-    .pipe(spritesmith({
-      imgPath: '../images/sprite.png',
-      imgName: 'sprite.png',
-      cssName: '_sprites.scss'
-    }));
-  spriteData.img.pipe(gulp.dest('images'));
-  spriteData.css.pipe(gulp.dest('sass/base'));
-});
+exports.lint = series(
+  sassLint
+);
 
-// Default - initial compile and watch.
-gulp.task('default', ['sprite', 'sass', 'watch', 'browsersync'], function () {
-});
-
-// Watch Sass - compile to CSS.
-gulp.task('watch', function () {
-  gulp.watch('sass/**/*.scss', ['sprite', 'sass']);
-});
-
-// Run BrowserSync.
-gulp.task('sync', ['sass', 'watch', 'browsersync'], function () {
-});
-
-// Initial build.
-gulp.task('build', ['sass', 'hologram'], function () {
-});
+exports.default = series(
+  sassCompile,
+  watchTask
+);
