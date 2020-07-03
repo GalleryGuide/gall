@@ -24,7 +24,11 @@
     width: 100%;
     background: $red;
     z-index: 1;
-    
+
+    @include breakpoint($mobile-only) {
+      box-shadow: 5px 5px 5px $grey-box-shadow;
+    }
+
     @include breakpoint($laptop) {
       top: 1.6em;
     }
@@ -51,15 +55,13 @@
     .menu {
       min-height: 5em;
     }
-    
+
     .menu-item {
-    
+
       width: 49%;
       padding: .25em;
     }
   }
-  
-  
 }
 
 .menu--primary-links {
@@ -67,11 +69,11 @@
   clear: both;
   background: $grey-dark;
   color: $white;
-  
+
   a {
     color: $white;
   }
-  
+
   .menu-item--active-trail {
     @include active-link;
   }
