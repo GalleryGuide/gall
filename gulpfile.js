@@ -1,4 +1,9 @@
-const {src, dest, watch, series} = require('gulp');
+const {src, dest, watch, series, parallel} = require('gulp');
+const gulp = require('gulp');
+
+var sass = require('gulp-sass');
+
+sass.compiler = require('node-sass');
 
 const
   $ = require('gulp-load-plugins')(),
@@ -32,26 +37,8 @@ const files = {
   iconPath: './icons/*'
 };
 
-function watchTask() {
-  browserSync.init({
-    proxy: 'thegalleryguide.lndo.site/'
-  });
-
-  watch([files.scssPath],
-    {interval: 1000, usePolling: true}, //Makes docker work
-    series(
-      sassCompile,
-      browserSync.reload
-    )
-  );
-
-  watch(files.scssPath, sassCompile);
-  watch('css/**/*.css').on('change', reload);
-  watch('templates/**/*.twig').on('change', reload);
-}
-
-function icons() {
-  return src('./src/icons/*')
+gulp.task('icons', function () {
+  return gulp.src('./src/icons/*')
     .pipe(svgmin())
     .pipe(svgstore({ fileName: 'icons.svg', inlineSvg: true}))
     .pipe(cheerio({
@@ -61,38 +48,49 @@ function icons() {
       },
       parserOptions: { xmlMode: true }
     }))
-    .pipe(dest('./images/'));
-}
+    .pipe(gulp.dest('./images/'));
+});
 
-function sassLint() {
-  return src('sass/**/*.scss')
+gulp.task('browser-sync', function(done) {
+  browserSync.init({
+    proxy: 'thegalleryguide.lndo.site/',
+    notify: false
+  });
+
+  browserSync.watch('./templates/**').on('change', browserSync.reload);
+
+  browserSync.watch('./css/**').on('change', browserSync.reload);
+
+  done()
+});
+
+gulp.task('sass-lint', function () {
+  return gulp.src('sass/**/*.scss')
     .pipe($.cached($.scssLint))
     .pipe($.scssLint({
       'config': 'scss-lint.yml'
     }));
-}
+});
 
-// Use Node Sass (LibSass) to compile Sass.
-function sassCompile() {
-  return src('sass/gall.scss')
-    .pipe($.if(envOption.sourcemap, $.sourcemaps.init()))
-    .pipe($.sass())
-    .pipe($.autoprefixer('last 2 versions', 'ie 8', 'ie 9'))
-    // Optionally produce production CSS.
-    .pipe($.if(envOption.sourcemap, $.sourcemaps.write('./')))
-    .pipe($.if(envOption.minify, $.minifyCss()))
-    .pipe(dest('css'));
-}
+gulp.task('sass', function () {
+  return gulp.src('./sass/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
 
-exports.icons = series(
-  icons
-);
+        .pipe($.if(envOption.sourcemap, $.sourcemaps.init()))
+        .pipe($.sass())
+        .pipe($.autoprefixer('last 2 versions', 'ie 8', 'ie 9'))
+        // Optionally produce production CSS.
+        .pipe($.if(envOption.sourcemap, $.sourcemaps.write('./')))
+        .pipe($.if(envOption.minify, $.minifyCss()))
+        .pipe(dest('css'))
 
-exports.lint = series(
-  sassLint
-);
+    .pipe(gulp.dest('./css'))
+    .pipe(browserSync.reload({stream: true}));
+});
 
-exports.default = series(
-  sassCompile,
-  watchTask
-);
+gulp.task('watch', gulp.series('sass', 'browser-sync', function(done) {
+  gulp.watch('./sass/**/*.*', gulp.series('sass', 'sass-lint'));
+  done()
+}));
+
+gulp.task('default', gulp.series('sass', 'sass-lint', 'watch'));
