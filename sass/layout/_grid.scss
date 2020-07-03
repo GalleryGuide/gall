@@ -25,6 +25,14 @@
 main {
   @include breakpoint($mobile-only) {
     padding-top: 5em;
+
+    .user-logged-in & {
+      padding-top: 6.5em;
+    }
+
+    .path-frontpage & {
+      padding-top: 0;
+    }
   }
 
   padding: 2em 0;
