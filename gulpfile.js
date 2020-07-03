@@ -1,10 +1,9 @@
-const {src, dest, watch, series, parallel} = require('gulp');
-// Gulp requires.
+const {src, dest, watch, series} = require('gulp');
+
 const
   $ = require('gulp-load-plugins')(),
   browserSync = require('browser-sync').create(),
   reload = browserSync.reload,
-  spritesmith = require('gulp.spritesmith'),
   minimist = require('minimist'),
   arg = minimist(process.argv.slice(2)),
   svgmin = require('gulp-svgmin'),
@@ -27,10 +26,26 @@ switch (arg.env) {
     break;
 }
 
+// File paths
+const files = {
+  scssPath: './sass/**/*.scss',
+  iconPath: './icons/*'
+};
+
 function watchTask() {
   browserSync.init({
-    proxy: 'drupalvm.dev'
+    proxy: 'thegalleryguide.lndo.site/'
   });
+
+  watch([files.scssPath],
+    {interval: 1000, usePolling: true}, //Makes docker work
+    series(
+      sassCompile,
+      browserSync.reload
+    )
+  );
+
+  watch(files.scssPath, sassCompile);
   watch('css/**/*.css').on('change', reload);
   watch('templates/**/*.twig').on('change', reload);
 }
