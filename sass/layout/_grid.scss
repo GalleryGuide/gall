@@ -8,21 +8,25 @@
 .layout-container {
   margin: 0 auto;
   padding: 0 1em;
-  
+
   @include breakpoint($tablet) {
     padding: 0 2em;
   }
-  
+
   @include breakpoint($laptop) {
     max-width: 64em;
-  }  
-  
+  }
+
   @include breakpoint($desktop) {
     padding: 0 1em;
   }
 }
 
 main {
+  @include breakpoint($mobile-only) {
+    padding-top: 5em;
+  }
+
   padding: 2em 0;
 }
 
@@ -30,11 +34,11 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  
+
   .block {
     @include breakpoint($mobile) {
       width: 49%;
-      
+
       &.block-views-blockgalleries-nearby-block-1 {
         width: auto;
       }
