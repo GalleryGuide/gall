@@ -99,7 +99,7 @@ function gall_preprocess_block(&$variables) {
     'views_block:exhibitions_this_artist-current',
     'views_block:exhibitions_this_artist-upcoming',
     'views_block:exhibitions_this_artist-past',
-//    'views_block:galleries_this_artist-current',
+    'views_block:galleries_this_artist-current',
   );
 
   if (in_array($variables['plugin_id'], $link_title_blocks)) {
@@ -131,13 +131,28 @@ function gall_preprocess_block(&$variables) {
   }
 }
 
+/**
+ * Get the relevant page URL for a block view.
+ *
+ * @param string $plugin_id
+ *   The block plugin ID.
+ * @param string $display
+ *   The view display.
+ * @param string $title
+ *   The title of the item being used to filter the view.
+ *
+ * @return \Drupal\Core\Url
+ *   The URL of the full page view.
+ */
 function _gall_view_block_page_url($plugin_id, $display = '', $title = '') {
   $url = '';
   $argument = strtolower(Html::cleanCssIdentifier($title));
 
-
   switch ($plugin_id) {
     case 'views_block:exhibitions_this_gallery-current':
+      $url = '/exhibitions/' . $argument;
+      break;
+
     case 'views_block:exhibitions_this_gallery-upcoming':
     case 'views_block:exhibitions_this_gallery-past':
       $url = '/exhibitions/' . $display . '/' . $argument;
@@ -163,9 +178,7 @@ function _gall_view_block_page_url($plugin_id, $display = '', $title = '') {
 
   }
 
-  $url_object = Url::fromUserInput($url);
-
-  return $url_object;
+  return Url::fromUserInput($url);
 }
 
 /**
@@ -220,7 +233,7 @@ function gall_theme_suggestions_views_view_fields_alter(array &$suggestions, arr
   if (in_array($view_id, $term_views)) {
     $suggestions[] = 'views_view_fields__tags';
   }
-  
+
   $suggestions[] = 'views_view_fields__' . $view_id;
 }
 
@@ -328,17 +341,17 @@ function gall_preprocess_node_gallery(&$variables) {
 }
 
 /**
- * Prepare placeholder text for a tags block. 
- * 
+ * Prepare placeholder text for a tags block.
+ *
  * @param string $title
  *   The title of the tags block.
- * 
+ *
  * @return array
  *   Render array of markup.
  */
 function _gall_tags_placeholder($title) {
   $body = 'There are no ' . strtolower($title) . ' currently listed - why not add some?';
-  
+
   return array(
     '#markup' => '<div class="field"><div class="field__label">' . $title . '</div><div class="field__items">' . $body . '</div></div>',
   );
@@ -391,7 +404,7 @@ function gall_preprocess_select(&$variables) {
 function gall_preprocess_field(&$variables, $hook) {
   switch ($variables['element']['#field_name']) {
     case 'field_image':
-    case 'field_images':      
+    case 'field_images':
       // If this is the default image, add a class.
       $images = $variables['element']['#items']->referencedEntities();
       if (empty($images)) {
@@ -428,7 +441,7 @@ function gall_preprocess_menu_local_task(&$variables) {
  */
 function gall_views_pre_render($view) {
   // Limit the distance to 2 decimal places.
-  if ($view->element['#name'] == 'galleries_nearby') {
+  if (!empty($view->element['#name']) && ($view->element['#name'] == 'galleries_nearby')) {
     foreach ($view->result as $row) {
       if (!empty($row->node__field_location_field_location_proximity1)) {
         $row->node__field_location_field_location_proximity1 = number_format($row->node__field_location_field_location_proximity1, 2);
