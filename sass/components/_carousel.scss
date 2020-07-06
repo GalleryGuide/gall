@@ -12,9 +12,9 @@
 
   > .field__item,
   > .views-row {
-    height: auto;
     display: inline-block;
     position: inherit;
+    height: auto;
     vertical-align: top;
   }
 
@@ -42,10 +42,10 @@
 
   > .field__item,
   > .views-row {
-    width: (100% / $items);
-    height: auto;
     display: inline-block;
     position: inherit;
+    width: (100% / $items);
+    height: auto;
   }
 }
 
@@ -59,27 +59,27 @@
      * There are $i images in the carousel.
      * The first image is repeated, so there are $i - 1 distinct images to share the transition time.
      */
-    $duration_per_slide: 100 / ($i - 1);
-    $moving_time: 5;
-    $still_time: $duration_per_slide - $moving_time;
+    $duration-per-slide: 100 / ($i - 1);
+    $moving-time: 5;
+    $still-time: $duration-per-slide - $moving-time;
 
     @for $j from 0 through $i {
 
-      $slide_start: round($j * $duration_per_slide);
-      $slide_end: round($slide_start + $still_time);
+      $slide-start: round($j * $duration-per-slide);
+      $slide-end: round($slide-start + $still-time);
 
       // Move everything one image width left for each slide.
-      $left_offset: 0 - $j;
+      $left-offset: 0 - $j;
 
-      @if ($slide_start <= 100) {
-        #{$slide_start}% {
-          left: percentage($left_offset);
+      @if ($slide-start <= 100) {
+        #{$slide-start}% {
+          left: percentage($left-offset);
         }
       }
 
-      @if ($slide_end < 100) {
-        #{$slide_end}% {
-          left: percentage($left_offset);
+      @if ($slide-end < 100) {
+        #{$slide-end}% {
+          left: percentage($left-offset);
         }
       }
     }
