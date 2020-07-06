@@ -149,6 +149,15 @@
   color: $white;
   font-weight: normal;
   font-size: 1.25em;
+
+  a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 }
 
 /// Button
