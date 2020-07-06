@@ -2,7 +2,7 @@
   display: flex;
   align-content: space-between;
   align-items: stretch;
-  
+
   @include breakpoint($mobile-only) {
     width: 100%;
   }
@@ -10,7 +10,7 @@
   li {
     flex-basis: 50%;
     flex-grow: 1;
-    
+
     &.is-active {
       @include element-invisible;
     }

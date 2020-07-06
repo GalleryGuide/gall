@@ -28,7 +28,7 @@
   font-size: initial;
 }
 
-/// Set up image carousels. 
+/// Set up image carousels.
 ///
 /// @param {int} $items - the number of items
 /// @param {int} $speed [6] - the duration of each item in seconds
@@ -36,10 +36,10 @@
 
 @mixin carousel($items, $speed: 6) {
   $duration: $items * $speed;
-    
-  animation: #{$duration}s slidy-#{$items} infinite;  
+
+  animation: #{$duration}s slidy-#{$items} infinite;
   width: (100% * $items);
-  
+
   > .field__item,
   > .views-row {
     width: (100% / $items);
@@ -53,7 +53,7 @@
   .carousel-#{$i} {
     @include carousel($i);
   }
-  
+
   @keyframes slidy-#{$i} {
     /**
      * There are $i images in the carousel.
@@ -62,13 +62,13 @@
     $duration_per_slide: 100 / ($i - 1);
     $moving_time: 5;
     $still_time: $duration_per_slide - $moving_time;
-    
+
     @for $j from 0 through $i {
 
       $slide_start: round($j * $duration_per_slide);
       $slide_end: round($slide_start + $still_time);
 
-      // Move everything one image width left for each slide. 
+      // Move everything one image width left for each slide.
       $left_offset: 0 - $j;
 
       @if ($slide_start <= 100) {

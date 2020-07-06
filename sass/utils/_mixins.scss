@@ -62,7 +62,7 @@
 
 @mixin icon-inline {
   @include hide-text;
-  
+
   display: inline-block;
   content: ' ';
 }
@@ -107,7 +107,7 @@
 
   .views-summary {
     border: 1px solid $white;
-    
+
     a {
       display: inline-block;
       padding: 0.5em;
@@ -130,12 +130,12 @@
 @mixin block-dark {
   background: $grey-dark;
   color: $white;
-  
+
   > .field__label {
     @include subheading;
     padding-left: .5em;
   }
-  
+
   .field__items {
     padding: .5em;
   }
@@ -260,7 +260,7 @@
   @include breakpoint($laptop) {
     max-width: 30em;
   }
-  
+
   &.image__default {
     @include breakpoint($mobile-only) {
       display: none;

@@ -5,7 +5,7 @@
 
 .adsense {
   width: $mobile-small;
-  
+
   @include breakpoint($phablet) {
     width: $phablet;
   }
@@ -25,5 +25,5 @@
   @include breakpoint($widescreen) {
     width: $widescreen;
   }
-  
+
 }

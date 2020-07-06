@@ -11,22 +11,22 @@
     align-items: stretch;
     background: $grey-dark;
     color: $white;
-    
+
     @include breakpoint($phablet) {
       flex-wrap: nowrap;
     }
   }
-  
+
   .carousel-image {
     flex-grow: 1;
   }
-  
+
   .carousel-text {
     display: block;
     min-height: 7em;
     padding: 1em;
     font-size: initial;
-    
+
     @include breakpoint($mobile-only) {
       display: flex;
       flex-direction: column;
@@ -38,17 +38,17 @@
         display: none;
       }
     }
-    
+
     @include breakpoint($mobile) {
       flex-basis: 15em;
       flex-grow: 0;
     }
-    
+
     h2 {
       margin: 0;
       font-size: 1.25em;
     }
-    
+
     .views-field {
       margin: 1em 0;
     }
