@@ -5,28 +5,25 @@
   color: $grey-dark;
 
   .form-submit {
-    @include sprite($search);
     @include icon-inline;
-    @include hover-red-box;
-
-    background-color: transparent;
+    background: url('/themes/custom/gall/src/icons/search-white.svg') no-repeat transparent center center;
+    padding: 10px;
     box-shadow: none;
-    padding: 0;
-    
+
     &:hover,
     &:focus {
-      @include sprite($search);
+      background: url('/themes/custom/gall/src/icons/search-red.svg') no-repeat transparent center center;
     }
   }
 }
 
 .search-results {
   padding: 0;
-  
+
   li {
     margin: 0 0 1.5em;
   }
-  
+
   h3 {
     margin-bottom: 0;
   }
