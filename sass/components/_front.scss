@@ -23,13 +23,13 @@
 
   .carousel-text {
     display: block;
-    min-height: 7em;
     padding: 1em;
+    min-height: 7em;
 
     @include breakpoint($mobile-only) {
       display: flex;
-      flex-direction: column;
       justify-content: flex-start;
+      flex-direction: column;
 
       .views-field-field-address-postal-code,
       .views-field-tags,
