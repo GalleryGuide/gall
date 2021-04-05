@@ -23,6 +23,8 @@
 }
 
 main {
+  padding: 2em 0;
+
   @include breakpoint($mobile-only) {
     padding-top: 4em;
 
@@ -34,8 +36,6 @@ main {
       padding-top: 0;
     }
   }
-
-  padding: 2em 0;
 }
 
 .region-content-bottom {

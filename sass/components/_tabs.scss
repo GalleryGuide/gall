@@ -1,7 +1,7 @@
 .tabs {
   display: flex;
-  align-content: space-between;
   align-items: stretch;
+  align-content: space-between;
 
   @include breakpoint($mobile-only) {
     width: 100%;
@@ -19,8 +19,8 @@
   a {
     @include button-secondary;
     display: flex;
-    align-items: center;
     justify-content: space-around;
+    align-items: center;
     height: 100%;
     text-align: center;
   }

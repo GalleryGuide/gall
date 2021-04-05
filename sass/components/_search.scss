@@ -6,8 +6,8 @@
 
   .form-submit {
     @include icon-inline;
+    padding: .625rem;
     background: url('/themes/custom/gall/src/icons/search-white.svg') no-repeat transparent center center;
-    padding: 10px;
     box-shadow: none;
 
     &:hover,
