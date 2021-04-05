@@ -1,5 +1,5 @@
 {
-  "name": "GalleryGuide",
+  "name": "gallery_guide_theme",
   "repository": {
     "type": "git",
     "url": "https://github.com/GalleryGuide/gall"
@@ -11,7 +11,7 @@
   "main": "gulpfile.js",
   "devDependencies": {
     "breakpoint-sass": "github:at-import/breakpoint",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.14",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-cached": "^1.1.1",
