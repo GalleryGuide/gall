@@ -2,7 +2,7 @@ name: Gallery Guide
 type: theme
 description: Gallery Guide theme
 package: Other
-core: 8.x
+core_version_requirement: ^8.8 || ^9
 libraries:
   - gall/global
 
@@ -18,8 +18,8 @@ base theme: classy
 regions:
   preheader: Pre-Header
   header: Header
-  navbar: Navigation Bar        
-  content_top: Content Top              
+  navbar: Navigation Bar
+  content_top: Content Top
   content: Main Content
   content_bottom: Content Bottom
   sidebar_first: First Sidebar
