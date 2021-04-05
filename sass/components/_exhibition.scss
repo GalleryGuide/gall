@@ -40,5 +40,5 @@
 
 .field--name-field-exhib-website a {
   @include text-ellipsis;
-  max-width: $details_block_width - 2em;
+  max-width: $details-block-width - 2em;
 }

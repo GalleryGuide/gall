@@ -72,8 +72,8 @@
 
 .gallery__admission {
   .field {
-    width: 8em;
     float: left;
+    width: 8em;
   }
 }
 
@@ -116,8 +116,8 @@
 }
 
 .office-hours-display {
-  margin-bottom: .25em;
   display: block;
+  margin-bottom: .25em;
 }
 
 .office-hours-display-label {
@@ -134,5 +134,5 @@
 
 .field--name-field-website a {
   @include text-ellipsis;
-  max-width: $details_block_width - 2em;
+  max-width: $details-block-width - 2em;
 }

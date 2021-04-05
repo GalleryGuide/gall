@@ -201,11 +201,11 @@
   padding: 1.5em;
   background: $grey-dark;
   color: $white;
-  flex-basis: $details_block_width;
+  flex-basis: $details-block-width;
   font-size: .9em;
 
   .field {
-    max-width: $details_block_width;
+    max-width: $details-block-width;
     margin-bottom: 1em;
 
     &:last-child {

@@ -46,7 +46,7 @@ header {
   }
 
   @include breakpoint($mobile-only) {
-    // Hide register link so that the menu fits on the same line as search. 
+    // Hide register link so that the menu fits on the same line as search.
     .menu-item:first-child {
       @include element-invisible;
     }
