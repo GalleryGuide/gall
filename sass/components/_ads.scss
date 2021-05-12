@@ -5,6 +5,7 @@
 
 .adsense {
   width: $mobile-small;
+  max-height: 120px;
 
   @include breakpoint($phablet) {
     width: $phablet;
