@@ -23,11 +23,17 @@
     "gulp-sass": "^4.1.0",
     "gulp-scss-lint": "^1.0.0",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-stylelint": "^13.0.0",
     "gulp-svgmin": "^3.0.0",
     "gulp-svgstore": "^7.0.1",
     "gulp.spritesmith": "^6.11.0",
     "minimist": "~1.2.0",
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "stylelint": "^13.12.0",
+    "stylelint-config-property-sort-order-smacss": "^7.0.0",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-order": "^4.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
