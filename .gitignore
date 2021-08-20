@@ -2,3 +2,6 @@ node_modules
 bower_components
 tests
 sassdoc
+css/*.css
+dist
+*/*.map
