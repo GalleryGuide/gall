@@ -256,6 +256,11 @@
       }
     }
   }
+
+  .field__item {
+    display: inline-block;
+    margin: 0 .5rem .5rem 0;
+  }
 }
 
 @mixin image-main {
