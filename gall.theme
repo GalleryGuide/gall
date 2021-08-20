@@ -60,6 +60,14 @@ function gall_preprocess_page(&$variables) {
 }
 
 /**
+ * Implements template_preprocess_maintenance_page().
+ */
+function gall_preprocess_maintenance_page(&$variables) {
+  $variables['logo'] = str_replace('.svg', '.png', $variables['logo']);
+  $variables['site_name'] = '';
+}
+
+/**
  * Implements hook_theme_suggestions_page_alter().
  */
 function gall_theme_suggestions_page_alter(array &$suggestions, array $variables) {
