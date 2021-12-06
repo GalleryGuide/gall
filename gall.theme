@@ -110,7 +110,6 @@ function gall_preprocess_block(&$variables) {
     'views_block:exhibitions_this_artist-current',
     'views_block:exhibitions_this_artist-upcoming',
     'views_block:exhibitions_this_artist-past',
-    'views_block:galleries_this_artist-current',
   );
 
   if (in_array($variables['plugin_id'], $link_title_blocks)) {
