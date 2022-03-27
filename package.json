@@ -26,7 +26,7 @@
     "gulp-svgmin": "^3.0.0",
     "gulp-svgstore": "^7.0.1",
     "gulp.spritesmith": "^6.11.0",
-    "minimist": "~1.2.0",
+    "minimist": "~1.2.6",
     "node-sass": "^7.0.0"
   },
   "scripts": {
