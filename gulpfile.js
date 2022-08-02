@@ -88,6 +88,8 @@ gulp.task('sass', function () {
     .pipe(browserSync.reload({stream: true}));
 });
 
+gulp.task('build', gulp.series('sass'));
+
 gulp.task('watch', gulp.series('sass', 'browser-sync', function(done) {
   gulp.watch('./sass/**/*.*', gulp.series('sass', 'sass-lint'));
   done()
