@@ -13,7 +13,7 @@
     "breakpoint-sass": "github:at-import/breakpoint",
     "browser-sync": "^2.29.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-cached": "^1.1.1",
     "gulp-cheerio": "^1.0.0",
     "gulp-hologram": "^1.2.3",
