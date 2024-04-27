@@ -4,7 +4,7 @@
  * @file
  * Functions to support theming in the gall theme.
  */
-
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\SafeMarkup;
 use Drupal\node\Entity\Node;
 use Drupal\Component\Utility\Html;
@@ -55,7 +55,7 @@ function gall_page_attachments_alter(array &$page) {
  * Implements hook_preprocess_page() for PAGE document templates.
  */
 function gall_preprocess_page(&$variables) {
-  $svg = file_get_contents(drupal_get_path('theme', 'gall') . '/images/icons.svg');
+  $svg = file_get_contents(\Drupal::service('extension.list.theme')->getPath('gall') . '/images/icons.svg');
   $variables['svg_icons'] = $svg;
 }
 
@@ -483,7 +483,7 @@ function gall_preprocess_views_view_unformatted(&$variables) {
 /**
  * Implementes hook_form_FORM_ID_alter().
  */
-function gall_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function gall_form_search_block_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   // Add a placeholder to the search input.
   $form['keys']['#attributes']['placeholder'] = t('Search');
 }
