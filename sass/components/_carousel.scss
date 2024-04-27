@@ -1,8 +1,11 @@
+@use 'sass:math';
+
 // See http://thenewcode.com/627/Make-A-Responsive-CSS3-Image-Slider
 
 .field--name-field-image,
 .field--name-field-images,
-.view-frontpage {
+.view-frontpage,
+.view-taxonomy-images {
   overflow: hidden;
 }
 
@@ -54,7 +57,7 @@
   > .views-row {
     display: inline-block;
     position: inherit;
-    width: (100% / $items);
+    width: math.div(100, $items);
     height: auto;
   }
 }
@@ -69,9 +72,9 @@
      * There are $i images in the carousel.
      * The first image is repeated, so there are $i - 1 distinct images to share the transition time.
      */
-    $duration-per-slide: 100 / ($i - 1);
+    $duration-per-slide: math.div(100, $i - 1);
     $moving-time: 5;
-    $still-time: $duration-per-slide - $moving-time;
+    $still-time: math.max(0, $duration-per-slide - $moving-time);
 
     @for $j from 0 through $i {
 
@@ -87,7 +90,7 @@
         }
       }
 
-      @if ($slide-end < 100) {
+      @if ($slide-end < 0 and round($slide-end) == $slide-end) {
         #{$slide-end}% {
           left: percentage($left-offset);
         }
