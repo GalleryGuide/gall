@@ -12,7 +12,7 @@
   "devDependencies": {
     "breakpoint-sass": "github:at-import/breakpoint",
     "browser-sync": "^3.0.2",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-cached": "^1.1.1",
     "gulp-cheerio": "^1.0.0",
