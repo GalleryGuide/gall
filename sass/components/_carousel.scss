@@ -88,9 +88,9 @@
       }
 
       @if ($slide-end < 100) {
-        #{$slide-end}% {
-          left: percentage($left-offset);
-        }
+        // #{$slide-end}% {
+        //   left: percentage($left-offset);
+        // }
       }
     }
   }

@@ -50,6 +50,6 @@ const watchFiles = () => {
 };
 
 exports.styles = series(buildStyles);
-exports.build = series(icons, buildStyles);
+exports.build = series(buildStyles);
 exports.watch = watchFiles;
 exports.serve = browserSyncServe;
