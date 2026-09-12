@@ -112,7 +112,7 @@
      {{ content.body }}
 
       <div class="gallery__map">
-        {{ content.field_rating }}
+        {{ content.rate_fivestar }}
         {{ content.field_location }}
       </div>
     </div>
@@ -126,4 +126,6 @@
       {% endif %}
     </div>
   </div>
+
+  {{ content|without('rate_fivestar','body','field_exhib_gallery','field_images','artists','tags', 'field_admission_std', 'field_admission_conc', 'field_exhib_website', 'field_date_from', 'field_date_to') }}
 </article>

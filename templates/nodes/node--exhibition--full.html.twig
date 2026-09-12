@@ -106,7 +106,7 @@
     </div>
 
     <div class="exhibition__body">
-      {{ content.field_rating }}
+      {{ content.rate_fivestar }}
       {{ content.body }}
     </div>
 
@@ -119,5 +119,6 @@
       <a href="/user/login?destination=node/{{ node.id }}">{{ 'Log in or register to edit this exhibition' }}</a>
     {% endif %}
   </div>
+  {{ content|without('rate_fivestar','body','field_exhib_gallery','field_images','artists','tags', 'field_admission_std', 'field_admission_conc', 'field_exhib_website', 'field_date_from', 'field_date_to') }}
 
 </article>
