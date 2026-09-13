@@ -15,6 +15,9 @@ libraries-override:
 base theme: classy
 #Using Classy as a base theme https://www.drupal.org/theme-guide/8/classy
 
+dependencies:
+  - classy:classy
+
 regions:
   preheader: Pre-Header
   header: Header

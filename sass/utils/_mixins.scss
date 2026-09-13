@@ -265,6 +265,7 @@
 
 @mixin image-main {
   order: 1;
+  max-height: 30rem;
 
   @include breakpoint($tablet) {
     order: 2;
