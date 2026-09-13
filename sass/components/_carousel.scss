@@ -91,9 +91,9 @@
       }
 
       @if ($slide-end < 0 and round($slide-end) == $slide-end) {
-        #{$slide-end}% {
-          left: percentage($left-offset);
-        }
+        // #{$slide-end}% {
+        //   left: percentage($left-offset);
+        // }
       }
     }
   }
