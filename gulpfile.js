@@ -15,6 +15,19 @@ const buildStyles = () =>
     .pipe(sass({ outputStyle: "compressed" }))
     .pipe(dest("css/"));
 
+const icons = () =>
+  src("src/icons/*.svg")
+    .pipe($.svgmin())
+    .pipe($.svgstore({ fileName: 'icons.svg', inlineSvg: true }))
+    .pipe($.cheerio({
+      run: function ($, file) {
+        $('svg').addClass('hidden');
+        $('[fill]').removeAttr('fill');
+      },
+      parserOptions: { xmlMode: true }
+    }))
+    .pipe(dest('./images/'));;
+
 /**
  * Initialise browser-sync to proxy the site.
  */
@@ -49,7 +62,8 @@ const watchFiles = () => {
   );
 };
 
+exports.icons = icons;
 exports.styles = series(buildStyles);
-exports.build = series(buildStyles);
+exports.build = series(icons, buildStyles);
 exports.watch = watchFiles;
 exports.serve = browserSyncServe;
